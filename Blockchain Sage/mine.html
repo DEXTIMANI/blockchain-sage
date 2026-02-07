@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Blockchain Sage</title>
+
+  <style>
+    /* === Base Styles & Animations === */
+    body {
+      margin: 0;
+      background: black url('images/pagecover.jpg') center/cover no-repeat fixed;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, p, img, section, nav, footer, 
+    .gallery-item, .blue-btn, .whitepaper-btn, .buy-sage-btn-full {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease-in-out;
+    }
+
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    /* Instruction Container */
+    p {
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 10px;
+      padding: 12px 20px;
+      display: inline-block;
+      line-height: 1.6;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      max-width: 80%;
+    }
+
+    /* === Floating Contact Icons === */
+    .fixed-icons {
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 9999;
+    }
+
+    .fixed-icons img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    }
+
+    .fixed-icons img:hover {
+      transform: translateX(8px) scale(1.1);
+      opacity: 1;
+      box-shadow: 0 0 15px rgba(173, 216, 230, 0.8);
+    }
+
+    /* === Buttons === */
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      width: 100%;
+      max-width: 450px;
+      margin: 30px auto;
+    }
+
+    .blue-btn {
+      background: #2b67e2;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      padding: 14px 28px;
+      font-weight: 700;
+      width: 100%;
+      box-sizing: border-box;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+
+    .buy-sage-btn-full {
+      background: white;
+      color: #006400;
+      border: 2px solid #006400;
+      border-radius: 50px;
+      padding: 14px 28px;
+      font-weight: 800;
+      width: 100%;
+      box-sizing: border-box;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .buy-sage-btn-full:hover {
+      background: #006400;
+      color: white;
+    }
+
+    footer {
+      padding: 40px;
+      color: pink;
+      background: rgba(0,0,0,0.6);
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CONTACT ICONS -->
+  <div class="fixed-icons">
+    <a href="https://whatsapp.com/channel/0029VbAQrDuHbFV0j8sLVv0X" target="_blank"><img src="icons/whatsapp.png" alt="WhatsApp"></a>
+    <a href="mailto:nobodyissage@gmail.com"><img src="icons/mail.png" alt="Email"></a>
+    <a href="https://www.facebook.com/profile.php?id=61560317553974" target="_blank"><img src="icons/Facebook.jpg" alt="Facebook"></a>
+    <a href="https://t.me/IAMBlockchainsage" target="_blank"><img src="icons/telegram.png" alt="Telegram"></a>
+    <a href="https://x.com/Bl0ckchainsage" target="_blank"><img src="icons/x.png" alt="Twitter"></a>
+    <a href="https://youtube.com/@BlockchainSAGE" target="_blank"><img src="icons/youtube.png" alt="YouTube"></a>
+  </div>
+
+  <header>
+    <h2>TIME TO MAKE REAL MONEY</h2>
+  </header>
+
+  <section class="main-content">
+
+    <p>1. Download the Blockchain Sage app</p><br>
+    <p>2. Sign up</p><br>
+    <p>3. Start Mining</p>
+
+    <div class="button-group">
+      <a href="APK/BlockchainSage.apk" class="buy-sage-btn-full">Download From Our Server</a>
+      <a href="https://play.google.com/store/apps/details?id=blockchainsage" class="blue-btn" target="_blank">Download From Play Store</a>
+    </div>
+<p>Note: This is not yet available. App is still under development</p>
+
+    <footer class="copyright">
+      © Blockchain Sage 2026 - All rights reserved
+    </footer>
+
+  </section>
+
+  <script>
+    const selectors = 'h1, h2, h3, h4, p, img, section, nav, footer, .blue-btn, .buy-sage-btn-full';
+
+    window.addEventListener('load', () => {
+      const elements = document.querySelectorAll(selectors);
+      elements.forEach((el, i) => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          setTimeout(() => el.classList.add('visible'), i * 100);
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+        else entry.target.classList.remove('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(selectors).forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
