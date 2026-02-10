@@ -35,7 +35,6 @@
       display: inline-block;
       line-height: 1.6;
       backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       max-width: 80%;
     }
@@ -90,8 +89,6 @@
       font-size: 18px;
       font-weight: 800;
       text-decoration: none;
-      display: inline-block;
-      margin-bottom: 15px;
       text-transform: uppercase;
       transition: all 0.3s ease;
     }
@@ -107,13 +104,14 @@
       color: white;
       text-decoration: none;
       border-radius: 50px;
-      padding: 12px 30px;
+      padding: 14px 28px;
       font-weight: 600;
       width: 100%;
       box-sizing: border-box;
       transition: all 0.3s ease;
     }
 
+    /* ✅ FIXED BUTTON PADDING */
     .buy-sage-btn-full {
       display: block;
       width: 100%;
@@ -121,9 +119,13 @@
       color: #006400;
       border: 2px solid #006400;
       border-radius: 50px;
-      padding: 15px 0;
+
+      /* 🔥 PROPER TEXT PADDING */
+      padding: 18px 32px;
+
       font-size: 18px;
       font-weight: 800;
+      line-height: 1.3;
       text-align: center;
       text-decoration: none;
       text-transform: uppercase;
@@ -137,7 +139,6 @@
       box-shadow: 0 0 20px rgba(0, 100, 0, 0.4);
     }
 
-    /* ✅ SMALL HERO IMAGE ADDED */
     .hero-image {
       max-width: 220px;
       width: 100%;
@@ -165,9 +166,20 @@
 
     footer {
       padding: 40px;
-      color: pink;
+      color: #ccc;
       background: rgba(0,0,0,0.6);
       margin-top: 50px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #00ffcc;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -176,7 +188,7 @@
 
 <div class="fixed-icons">
   <a href="https://whatsapp.com/channel/0029VbAQrDuHbFV0j8sLVv0X" target="_blank"><img src="icons/whatsapp.png"></a>
-  <a href="mailto:nobodyissage@gmail.com"><img src="icons/mail.png"></a>
+  <a href="mailto:support@blockchain-sage.com"><img src="icons/mail.png"></a>
   <a href="https://www.facebook.com/profile.php?id=61560317553974" target="_blank"><img src="icons/Facebook.jpg"></a>
   <a href="https://t.me/IAMBlockchainsage" target="_blank"><img src="icons/telegram.png"></a>
   <a href="https://x.com/Bl0ckchainsage" target="_blank"><img src="icons/x.png"></a>
@@ -187,15 +199,14 @@
   <h3>Welcome To</h3>
 </header>
 
-<!-- SMALL IMAGE -->
 <img src="page.png" alt="Blockchain Sage" class="hero-image">
 
 <h4>Official Website</h4>
 
 <section class="main-content">
   <p>
-    I have a mission. I have a vision.<br> Cryptocurrency is the future of the global economy.<br>
-    Cryptocurrency is the hub of what lies ahead<br> and I'm dedicated to making this economic reform<br>
+    I have a mission. I have a vision. Cryptocurrency is the future of the global economy.
+    Cryptocurrency is the hub of what lies ahead and I'm dedicated to making this economic reform
     a stepping stone for the layman.
   </p>
 
@@ -230,20 +241,25 @@
     <div class="gallery-item"><img src="images/coming soon.png"></div>
   </div>
 
-  <footer>© Blockchain Sage 2026 - All rights reserved</footer>
+  <footer>
+    © 2026 Blockchain Sage — All rights reserved<br><br>
+    <a href="/privacy.html">Privacy Policy</a> |
+    <a href="/terms.html">Terms & Conditions</a> |
+    <a href="/contact.html">Contact</a>
+  </footer>
 </section>
 
-<script>
-  const selectors =
-    'h1, h2, h3, h4, p, img, section, nav, footer, .gallery-item, .blue-btn, .whitepaper-btn, .buy-sage-btn-full';
+<!-- 🍪 Cookie Consent -->
+<div id="cookie-banner" style="position:fixed;bottom:0;width:100%;background:#000;padding:15px;display:none;z-index:10000;">
+  We use cookies to improve experience and serve ads.
+  <a href="/privacy.html" style="color:#00ffcc;">Learn more</a>
+  <button id="accept-cookies" style="margin-left:15px;padding:8px 16px;border-radius:20px;">Accept</button>
+</div>
 
-  window.addEventListener('load', () => {
-    document.querySelectorAll(selectors).forEach((el, i) => {
-      if (el.getBoundingClientRect().top < window.innerHeight) {
-        setTimeout(() => el.classList.add('visible'), i * 100);
-      }
-    });
-  });
+<script>
+  const elements = document.querySelectorAll(
+    'h1,h2,h3,h4,p,img,section,footer,.gallery-item,.blue-btn,.whitepaper-btn,.buy-sage-btn-full'
+  );
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -251,7 +267,14 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll(selectors).forEach(el => observer.observe(el));
+  elements.forEach(el => observer.observe(el));
+
+  const banner = document.getElementById("cookie-banner");
+  if (!localStorage.getItem("cookieConsent")) banner.style.display = "block";
+  document.getElementById("accept-cookies").onclick = () => {
+    localStorage.setItem("cookieConsent", "accepted");
+    banner.style.display = "none";
+  };
 </script>
 
 </body>
