@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Addresses | Blockchain Sage</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#000000,#041b08);
+            color:#ffffff;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:20px;
+        }
+
+        .container{
+            width:100%;
+            max-width:900px;
+        }
+
+        h1{
+            text-align:center;
+            color:#00ff88;
+            margin-bottom:35px;
+            font-size:2.5rem;
+            text-shadow:0 0 12px rgba(0,255,136,.5);
+        }
+
+        .card{
+            background:#0b0b0b;
+            border:1px solid #00ff88;
+            border-radius:15px;
+            padding:30px;
+            box-shadow:0 0 25px rgba(0,255,136,.2);
+        }
+
+        .label{
+            color:#00ff88;
+            font-size:18px;
+            font-weight:bold;
+            margin-bottom:12px;
+        }
+
+        .address{
+            background:#051108;
+            border:1px solid #00ff88;
+            color:#7dffb2;
+            padding:18px;
+            border-radius:10px;
+            font-family:Consolas, monospace;
+            font-size:16px;
+            word-break:break-all;
+            margin-bottom:25px;
+        }
+
+        .button-group{
+            display:flex;
+            gap:15px;
+            flex-wrap:wrap;
+        }
+
+        button{
+            flex:1;
+            min-width:180px;
+            background:#00ff88;
+            color:#000;
+            border:none;
+            padding:14px 24px;
+            border-radius:8px;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:.3s;
+            box-shadow:0 0 12px rgba(0,255,136,.4);
+        }
+
+        button:hover{
+            background:#00cc6a;
+            transform:translateY(-2px);
+            box-shadow:0 0 18px rgba(0,255,136,.6);
+        }
+
+        .message{
+            display:none;
+            margin-top:20px;
+            padding:12px;
+            background:#052b13;
+            border:1px solid #00ff88;
+            border-radius:8px;
+            color:#00ff88;
+            font-weight:bold;
+            text-align:center;
+        }
+
+        footer{
+            margin-top:25px;
+            text-align:center;
+            color:#8bd9b0;
+            font-size:14px;
+        }
+
+        @media(max-width:600px){
+            h1{
+                font-size:2rem;
+            }
+
+            button{
+                width:100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>CONTRACT ADDRESSES</h1>
+
+    <div class="card">
+
+        <div class="label">
+            Rewarded Token Contract Address
+        </div>
+
+        <div class="address" id="contractAddress">
+            0x6e6cca0870dde7caae1274da6fc84803b902c10d
+        </div>
+
+        <div class="button-group">
+            <button onclick="copyAddress()">📋 Copy Address</button>
+            <button onclick="shareAddress()">📤 Share Address</button>
+        </div>
+
+        <div class="message" id="message"></div>
+
+    </div>
+
+    <footer>
+        Blockchain Sage © 2026
+    </footer>
+
+</div>
+
+<script>
+
+const address = "0x6e6cca0870dde7caae1274da6fc84803b902c10d";
+
+function showMessage(text){
+    const msg = document.getElementById("message");
+    msg.innerHTML = text;
+    msg.style.display = "block";
+
+    setTimeout(()=>{
+        msg.style.display = "none";
+    },3000);
+}
+
+function copyAddress(){
+    navigator.clipboard.writeText(address)
+    .then(()=>{
+        showMessage("✅ Contract address copied successfully.");
+    })
+    .catch(()=>{
+        showMessage("❌ Unable to copy the address.");
+    });
+}
+
+async function shareAddress(){
+
+    const shareData = {
+        title: "Rewarded Token Contract Address",
+        text: "Rewarded Token Contract Address:\n\n" + address
+    };
+
+    if(navigator.share){
+        try{
+            await navigator.share(shareData);
+        }catch(e){}
+    }else{
+        navigator.clipboard.writeText(address);
+        showMessage("✅ Sharing is not supported on this device. Address copied instead.");
+    }
+}
+
+</script>
+
+</body>
+</html>
