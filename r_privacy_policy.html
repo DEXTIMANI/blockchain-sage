@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Privacy Policy | Rebellion Network</title>
+
+  <meta
+    name="description"
+    content="Privacy Policy for the Rebellion Network application operated by Blockchain Sage."
+  >
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --heading: #111827;
+      --background: #f5f7fb;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --accent: #eff6ff;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--background);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #111827, #1e3a8a);
+      color: white;
+      padding: 70px 20px 60px;
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .brand {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #bfdbfe;
+      margin-bottom: 15px;
+    }
+
+    header h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    header p {
+      max-width: 750px;
+      color: #dbeafe;
+      font-size: 1.05rem;
+    }
+
+    .effective-date {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 999px;
+      font-size: 14px;
+      color: #e0e7ff;
+    }
+
+    /* Navigation */
+    .nav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+    }
+
+    .nav-logo {
+      font-weight: 800;
+      color: var(--heading);
+      font-size: 17px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .menu-button {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 26px;
+      cursor: pointer;
+      color: var(--heading);
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 35px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 90px;
+      height: fit-content;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar h3 {
+      font-size: 14px;
+      margin-bottom: 15px;
+      color: var(--heading);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li {
+      margin-bottom: 8px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 7px 9px;
+      border-radius: 7px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .sidebar a:hover {
+      background: var(--accent);
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* Content */
+    .content {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: clamp(25px, 5vw, 55px);
+      box-shadow: var(--shadow);
+    }
+
+    section {
+      scroll-margin-top: 90px;
+      margin-bottom: 50px;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      color: var(--heading);
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.3;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h3 {
+      color: var(--heading);
+      font-size: 1.15rem;
+      margin: 25px 0 10px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    ul {
+      margin: 10px 0 20px 22px;
+    }
+
+    li {
+      margin-bottom: 9px;
+    }
+
+    .highlight {
+      background: var(--accent);
+      border-left: 4px solid var(--primary);
+      padding: 18px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .contact-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .contact-box strong {
+      color: var(--heading);
+    }
+
+    .email {
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    /* Buttons */
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    button.action-button {
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 16px;
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    button.action-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    button.secondary {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    button.secondary:hover {
+      background: #d1d5db;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px 60px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer strong {
+      color: var(--heading);
+    }
+
+    /* Mobile */
+    @media (max-width: 850px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 64px;
+        background: white;
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 10px;
+      }
+
+      .menu-button {
+        display: block;
+      }
+    }
+
+    /* Print */
+    @media print {
+      body {
+        background: white;
+      }
+
+      header {
+        background: white;
+        color: black;
+        padding: 20px 0;
+      }
+
+      header p,
+      .effective-date,
+      .nav-wrapper,
+      .sidebar,
+      .actions {
+        display: none !important;
+      }
+
+      header h1 {
+        color: black;
+      }
+
+      .container {
+        display: block;
+        max-width: none;
+        margin: 0;
+      }
+
+      .content {
+        box-shadow: none;
+        border: 0;
+        padding: 0;
+      }
+
+      footer {
+        padding: 20px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <span class="brand">Blockchain Sage</span>
+
+      <h1>Privacy Policy</h1>
+
+      <p>
+        This privacy policy applies to the Rebellion Network app for mobile
+        devices, together with any related services operated by Blockchain Sage
+        (collectively, the "Application").
+      </p>
+
+      <span class="effective-date">
+        Effective: October 3, 2026
+      </span>
+
+      <div class="actions">
+        <button class="action-button" onclick="window.print()">
+          Print Policy
+        </button>
+
+        <button class="action-button secondary" onclick="scrollToTop()">
+          Back to Top
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <div class="nav-wrapper">
+    <nav>
+      <div class="nav-logo">Rebellion Network</div>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#collection">Information</a></li>
+        <li><a href="#rights">Your Rights</a></li>
+        <li><a href="#third-party">Third Party</a></li>
+        <li><a href="#retention">Retention</a></li>
+        <li><a href="#children">Children</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main -->
+  <main class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3>Contents</h3>
+
+      <ul>
+        <li><a href="#collection">Information Collection</a></li>
+        <li><a href="#cookies">Cookies & Tracking</a></li>
+        <li><a href="#rights">Your Rights</a></li>
+        <li><a href="#ccpa">California Privacy Rights</a></li>
+        <li><a href="#third-party">Third Party Access</a></li>
+        <li><a href="#transfers">International Transfers</a></li>
+        <li><a href="#optout">Opt-Out Rights</a></li>
+        <li><a href="#retention">Data Retention</a></li>
+        <li><a href="#deletion">Data Deletion</a></li>
+        <li><a href="#children">Children</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#breach">Data Breach</a></li>
+        <li><a href="#changes">Changes</a></li>
+        <li><a href="#consent">Your Consent</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </aside>
+
+    <!-- Policy Content -->
+    <article class="content">
+
+      <section id="collection">
+        <h2>Information Collection and Use</h2>
+
+        <p>
+          The Application collects information when you download and use it.
+          This information may include information such as:
+        </p>
+
+        <ul>
+          <li>Your device's Internet Protocol address.</li>
+          <li>
+            The pages of the Application that you visit, the time and date of
+            your visit, and the time spent on those pages.
+          </li>
+          <li>The time spent on the Application.</li>
+          <li>The mobile operating system you use.</li>
+        </ul>
+
+        <p>
+          For a better experience while using the Application, the Service
+          Provider may require you to provide certain personally identifiable
+          information, including but not limited to your name and email
+          address.
+        </p>
+
+        <p>
+          The information the Service Provider requests will be retained and
+          used as described in this privacy policy.
+        </p>
+      </section>
+
+      <section id="cookies">
+        <h2>Cookies and Tracking Technologies</h2>
+
+        <p>
+          The Application or its third-party SDKs may use cookies, SDKs,
+          pixels, and similar technologies to support functionality, analytics,
+          or service delivery.
+        </p>
+
+        <p>
+          Where required by applicable law, the Service Provider will obtain
+          consent before using non-essential tracking technologies.
+        </p>
+      </section>
+
+      <section id="rights">
+        <h2>Your Rights</h2>
+
+        <p>
+          You may request access to, correction of, or deletion of your
+          personal data held by the Service Provider.
+        </p>
+
+        <p>
+          To exercise these rights, or to withdraw consent where processing is
+          based on consent, contact the Service Provider at
+          <a class="email" href="mailto:abnersahel@gmail.com">
+            abnersahel@gmail.com
+          </a>.
+        </p>
+
+        <p>
+          The Service Provider may use the information you provide to send
+          important information, required notices, and, where permitted by law,
+          marketing communications.
+        </p>
+      </section>
+
+      <section id="ccpa">
+        <h2>Your California Privacy Rights (CCPA/CPRA)</h2>
+
+        <p>
+          If you are a California resident, you have the right to know what
+          personal information is collected, the right to delete personal
+          information, the right to opt out of the sale or sharing of personal
+          information, and the right to non-discrimination for exercising these
+          rights.
+        </p>
+
+        <p>
+          To exercise your CCPA/CPRA rights, contact the Service Provider at
+          <a class="email" href="mailto:abnersahel@gmail.com">
+            abnersahel@gmail.com
+          </a>.
+        </p>
+      </section>
+
+      <section id="third-party">
+        <h2>Third Party Access</h2>
+
+        <p>
+          Only aggregated, anonymized data is periodically transmitted to
+          external services to aid the Service Provider in improving the
+          Application and their service.
+        </p>
+
+        <p>
+          The Service Provider may share your information with third parties in
+          the ways that are described in this privacy statement.
+        </p>
+
+        <h3>Third-Party Services</h3>
+
+        <p>
+          The Application utilizes third-party services that have their own
+          Privacy Policies about handling data.
+        </p>
+
+        <div class="highlight">
+          <strong>AdMob</strong>
+          <p style="margin-top: 8px; margin-bottom: 0;">
+            The Application may use AdMob as a third-party service.
+            Third-party services may collect and process information according
+            to their own privacy policies and terms.
+          </p>
+        </div>
+
+        <h3>Disclosure of Information</h3>
+
+        <p>
+          The Service Provider may disclose User Provided and Automatically
+          Collected Information:
+        </p>
+
+        <ul>
+          <li>
+            As required by law, such as to comply with a subpoena or similar
+            legal process.
+          </li>
+
+          <li>
+            When they believe in good faith that disclosure is necessary to
+            protect their rights, protect your safety or the safety of others,
+            investigate fraud, or respond to a government request.
+          </li>
+
+          <li>
+            With trusted service providers who work on their behalf, do not have
+            an independent use of the information the Service Provider discloses
+            to them, and have agreed to adhere to the rules set forth in this
+            privacy statement.
+          </li>
+        </ul>
+      </section>
+
+      <section id="transfers">
+        <h2>International Data Transfers</h2>
+
+        <p>
+          The Service Provider or its third-party service providers may
+          transfer personal data to countries outside your country of
+          residence, including outside the European Economic Area (EEA).
+        </p>
+
+        <p>
+          Where applicable law requires safeguards for international transfers,
+          the Service Provider will use appropriate mechanisms, including:
+        </p>
+
+        <ul>
+          <li>
+            Standard Contractual Clauses (SCCs) approved by the European
+            Commission.
+          </li>
+
+          <li>
+            Adequacy decisions or other legally recognized transfer mechanisms.
+          </li>
+
+          <li>
+            Your consent, where required and legally permitted.
+          </li>
+        </ul>
+
+        <p>
+          Data protection laws in other countries may differ from those in your
+          jurisdiction. Where required by law, the Service Provider will apply
+          appropriate safeguards and obtain any consent required for the
+          transfer.
+        </p>
+      </section>
+
+      <section id="optout">
+        <h2>Opt-Out Rights</h2>
+
+        <p>
+          You can stop further collection of information from your mobile device
+          by uninstalling the Application.
+        </p>
+
+        <p>
+          Uninstalling will stop the Application from collecting data from your
+          device, but it does not automatically delete information that has
+          already been transmitted to the Service Provider or to third parties.
+        </p>
+
+        <p>
+          To request deletion of your personal data, withdraw consent, or
+          exercise any of your rights, contact the Service Provider at
+          <a class="email" href="mailto:abnersahel@gmail.com">
+            abnersahel@gmail.com
+          </a>.
+        </p>
+      </section>
+
+      <section id="retention">
+        <h2>Data Retention Policy</h2>
+
+        <p>
+          The Service Provider retains personal data based on its necessity for
+          the stated purposes:
+        </p>
+
+        <ul>
+          <li>
+            <strong>User Provided Data:</strong>
+            Retained for the duration of your use of the Application plus
+            12 months thereafter, unless longer retention is required by law.
+          </li>
+
+          <li>
+            <strong>Automatically Collected Data:</strong>
+            Retained for up to 24 months from collection, unless longer
+            retention is required for legal compliance.
+          </li>
+
+          <li>
+            <strong>Aggregated and Anonymized Data:</strong>
+            Retained indefinitely as it no longer identifies you.
+          </li>
+
+          <li>
+            <strong>Data required for legal compliance:</strong>
+            Retained as long as required by applicable law.
+          </li>
+        </ul>
+
+        <p>
+          You may request deletion of your personal data, subject to any legal
+          obligation to retain it.
+        </p>
+
+        <p>
+          If you want the Service Provider to delete User Provided Data
+          submitted through the Application, please contact them at
+          <a class="email" href="mailto:abnersahel@gmail.com">
+            abnersahel@gmail.com
+          </a>.
+        </p>
+
+        <p>
+          Please note that some User Provided Data may be required for the
+          Application to function properly.
+        </p>
+      </section>
+
+      <section id="deletion">
+        <h2>Data Deletion</h2>
+
+        <p>
+          You can request deletion of your personal data or account by
+          contacting the Service Provider at
+          <a class="email" href="mailto:abnersahel@gmail.com">
+            abnersahel@gmail.com
+          </a>.
+        </p>
+
+        <p>
+          The Service Provider will process your request within the timeframes
+          required by applicable law.
+        </p>
+
+        <p>
+          Upon verification of your identity, the Service Provider will delete
+          your personal data from its systems, except where retention is
+          required for legal compliance or legitimate business purposes.
+        </p>
+      </section>
+
+      <section id="children">
+        <h2>Children</h2>
+
+        <p>
+          The Application is not intended for children under 18 years of age,
+          or such higher age as required by applicable law.
+        </p>
+
+        <p>
+          The Service Provider does not knowingly solicit data from children or
+          market the Application to them.
+        </p>
+
+        <p>
+          Where parental or guardian consent is required under applicable law,
+          the Application is not intended for use without that consent.
+        </p>
+
+        <p>
+          The Service Provider does not knowingly collect personally
+          identifiable information from children under 18 years of age in
+          violation of applicable law.
+        </p>
+
+        <p>
+          In the event the Service Provider discovers that a child has provided
+          personal information, the Service Provider will immediately delete
+          this from their servers.
+        </p>
+
+        <p>
+          If you are a parent or guardian and you are aware that your child has
+          provided the Service Provider with personal information, please
+          contact the Service Provider at
+          <a class="email" href="mailto:abnersahel@gmail.com">
+            abnersahel@gmail.com
+          </a>
+          so that they will be able to take the necessary actions.
+        </p>
+      </section>
+
+      <section id="security">
+        <h2>Security</h2>
+
+        <p>
+          The Service Provider is concerned about safeguarding the
+          confidentiality of your information.
+        </p>
+
+        <p>
+          The Service Provider provides physical, electronic, and procedural
+          safeguards to protect information the Service Provider processes and
+          maintains.
+        </p>
+      </section>
+
+      <section id="breach">
+        <h2>Data Breach Notification</h2>
+
+        <p>
+          If a data breach occurs that affects your personal data, the Service
+          Provider will notify you in accordance with applicable legal
+          requirements, including, where required, providing information about
+          the nature of the breach and the steps being taken to address it.
+        </p>
+      </section>
+
+      <section id="changes">
+        <h2>Changes</h2>
+
+        <p>
+          The Service Provider may update this Privacy Policy from time to time.
+          The Service Provider will notify you of material changes by posting
+          the updated Privacy Policy with an effective date.
+        </p>
+
+        <p>
+          Where required by law, the Service Provider will seek your consent to
+          material changes before they take effect.
+        </p>
+
+        <p>
+          Previous versions of this Privacy Policy will be maintained and made
+          available upon request by contacting the Service Provider at
+          <a class="email" href="mailto:abnersahel@gmail.com">
+            abnersahel@gmail.com
+          </a>.
+        </p>
+
+        <div class="highlight">
+          <strong>Effective Date:</strong> October 3, 2026
+        </div>
+      </section>
+
+      <section id="consent">
+        <h2>Your Consent</h2>
+
+        <p>
+          Where processing is based on consent, you provide that consent by
+          affirmatively opting in to the relevant feature or action.
+        </p>
+
+        <p>
+          You may withdraw consent at any time without affecting processing
+          carried out before withdrawal.
+        </p>
+
+        <p>
+          Processing based on other lawful bases is carried out as described
+          above.
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Us</h2>
+
+        <p>
+          If you have any questions regarding privacy while using the
+          Application, or have questions about the practices, please contact
+          the Service Provider via email.
+        </p>
+
+        <div class="contact-box">
+          <strong>Blockchain Sage</strong>
+          <br>
+
+          <a
+            class="email"
+            href="mailto:abnersahel@gmail.com"
+          >
+            abnersahel@gmail.com
+          </a>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      © <span id="year"></span>
+      <strong>Blockchain Sage</strong>.
+      All rights reserved.
+    </p>
+
+    <p>
+      Rebellion Network Privacy Policy
+    </p>
+  </footer>
+
+  <script>
+    // Current year in footer
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Mobile navigation
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", function () {
+      navLinks.classList.toggle("active");
+
+      const expanded =
+        menuButton.getAttribute("aria-expanded") === "true";
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(!expanded)
+      );
+    });
+
+    // Close mobile menu after clicking a link
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("active");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Back to top
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  </script>
+
+</body>
+</html>
