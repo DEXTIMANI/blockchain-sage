@@ -1,565 +1,1815 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d12">
+  <meta name="description" content="Explore Blockchain Sage, Sage Token, and Rebellion — a community-powered digital economy.">
   <link rel="icon" type="image/png" href="favicon.png">
-  <title>Blockchain Sage & Rebellion</title>
+  <title>Blockchain Sage | Rebellion Digital Ecosystem</title>
 
   <style>
     :root {
-      --primary-green: #00FF00;
-      --primary-dark-green: #006400;
-      --primary-blue: #2b67e2;
-      --dark-bg: #111111;
-      --glass-bg: rgba(255, 255, 255, 0.05);
+      --green: #00f58a;
+      --green-light: #a7ffd0;
+      --blue: #3978ff;
+      --bg: #080d12;
+      --panel: #101820;
+      --text: #f4f7fb;
+      --muted: #aab6c5;
+      --border: rgba(255,255,255,.10);
+      --glass: rgba(255,255,255,.045);
+      --radius: 18px;
+      --max-width: 1150px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
     }
 
     body {
       margin: 0;
-      background: linear-gradient(135deg, #0d0d12 0%, #1a1a24 100%);
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
-      overflow-x: hidden;
       min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(0,245,138,.09), transparent 40%),
+        radial-gradient(ellipse at 100% 45%, rgba(57,120,255,.07), transparent 35%),
+        linear-gradient(145deg, #080d12, #10131c 55%, #080d12);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.7;
     }
 
-    /* Animation Classes */
-    h1, h2, h3, h4, p, img, section, nav, footer,
-    .gallery-item, .blue-btn, .whitepaper-btn, .buy-sage-btn-full, .promote-btn {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-in-out;
+    button, input, textarea {
+      font: inherit;
     }
 
-    .visible {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
+    button, a {
+      -webkit-tap-highlight-color: transparent;
     }
 
-    p, .glass-panel {
-      background: var(--glass-bg);
-      border-radius: 12px;
-      padding: 15px 25px;
-      display: inline-block;
-      line-height: 1.6;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-      max-width: 80%;
+    a {
+      color: inherit;
     }
 
-    /* Header & Navigation Tabs */
+    img {
+      max-width: 100%;
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.3;
+      letter-spacing: -.3px;
+    }
+
+    h2 {
+      margin: 30px 0 18px;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .green-text {
+      color: var(--green);
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 36px));
+      margin-inline: auto;
+    }
+
+    /* Header */
+
     .top-nav {
-      margin-top: 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 22px;
+      padding: 28px 16px 0;
+    }
+
+    .brand-label {
+      margin: 0;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
     }
 
     .tab-container {
       display: flex;
-      gap: 15px;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 8px;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      justify-content: center;
+      gap: 8px;
+      width: min(100%, 460px);
+      padding: 7px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(9,14,20,.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
 
     .tab-btn {
+      flex: 1;
+      min-width: 0;
+      min-height: 48px;
+      padding: 12px 14px;
+      border: 1px solid transparent;
+      border-radius: 12px;
       background: transparent;
-      border: none;
-      color: #aaa;
-      padding: 12px 30px;
-      border-radius: 50px;
-      font-size: 16px;
-      font-weight: bold;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: .25s ease;
+    }
+
+    .tab-btn:hover {
+      background: rgba(255,255,255,.06);
+      color: white;
     }
 
     .tab-btn.active {
-      background: var(--primary-green);
-      color: black;
-      box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+      background: linear-gradient(135deg, var(--green-light), var(--green));
+      color: #06150d;
+      box-shadow: 0 5px 22px rgba(0,245,138,.17);
     }
+
+    /* Buttons */
+
+    .btn-base {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 56px;
+      padding: 15px 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 15px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      line-height: 1.5;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease,
+                  background .25s ease, border-color .25s ease;
+    }
+
+    .btn-base:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-base:active {
+      transform: scale(.985);
+    }
+
+    .btn-base:focus-visible,
+    .tab-btn:focus-visible,
+    .promote-btn:focus-visible,
+    .submit-btn:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 4px;
+    }
+
+    .whitepaper-btn {
+      color: var(--green);
+      background: linear-gradient(135deg, #14251f, #101820);
+      border-color: rgba(0,245,138,.5);
+    }
+
+    .whitepaper-btn:hover,
+    .whitepaper-btn.active-btn {
+      color: #06150d;
+      background: linear-gradient(135deg, var(--green-light), #00d979);
+      box-shadow: 0 8px 28px rgba(0,245,138,.22);
+    }
+
+    .blue-btn {
+      color: white;
+      background: linear-gradient(135deg, #3978ff, #214acb);
+      border-color: rgba(125,166,255,.4);
+      box-shadow: 0 6px 22px rgba(57,120,255,.12);
+    }
+
+    .blue-btn:hover {
+      background: linear-gradient(135deg, #5590ff, #2c5ce0);
+      box-shadow: 0 10px 30px rgba(57,120,255,.3);
+    }
+
+    .buy-sage-btn-full {
+      color: #06150d;
+      background: linear-gradient(135deg, var(--green-light), var(--green));
+      border-color: var(--green);
+      box-shadow: 0 6px 22px rgba(0,245,138,.12);
+    }
+
+    .buy-sage-btn-full:hover {
+      color: white;
+      background: linear-gradient(135deg, #087c4b, #075b3a);
+      box-shadow: 0 10px 30px rgba(0,245,138,.22);
+    }
+
+    .market-btn {
+      color: white;
+      background: linear-gradient(135deg, #172d42, #102033);
+      border-color: rgba(56,189,248,.4);
+    }
+
+    .market-btn:hover {
+      background: linear-gradient(135deg, #075985, #0e7490);
+      box-shadow: 0 10px 30px rgba(14,165,233,.22);
+    }
+
+    .promote-btn {
+      min-height: 50px;
+      padding: 14px 24px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--green-light), var(--green));
+      color: #06150d;
+      font-size: 13px;
+      font-weight: 850;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0,245,138,.15);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .promote-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,245,138,.27);
+    }
+
+    .cta-container {
+      margin: 65px auto 75px;
+      padding: 0 16px;
+    }
+
+    .cta-container h3 {
+      margin-bottom: 26px;
+      color: var(--green);
+      font-size: 19px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 15px;
+      width: min(100%, 430px);
+      margin: 28px auto 0;
+    }
+
+    /* Main tabs */
 
     .tab-content {
       display: none;
-      animation: fadeIn 0.5s ease-in-out;
+      animation: sectionFade .45s ease both;
     }
 
     .tab-content.active {
       display: block;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+    @keyframes sectionFade {
+      from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Fixed Social Icons */
-    .fixed-icons {
-      position: fixed;
-      top: 50%;
-      left: 20px;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      z-index: 9999;
-    }
-
-    .fixed-icons img {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      opacity: 0.7;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-
-    .fixed-icons img:hover {
-      transform: translateX(10px) scale(1.1);
-      opacity: 1;
-      box-shadow: 0 0 15px rgba(173, 216, 230, 0.8);
-    }
-
-    /* Buttons */
-    .cta-container {
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-
-    .button-group {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      width: 100%;
-      max-width: 450px;
-      margin: 20px auto;
-    }
-
-    .btn-base {
-      display: block;
-      width: 100%;
-      border-radius: 50px;
-      padding: 16px 32px;
-      font-size: 16px;
-      font-weight: 800;
-      text-decoration: none;
-      text-transform: uppercase;
-      box-sizing: border-box;
-      transition: all 0.3s ease;
-      cursor: pointer;
+    .hero {
+      padding-top: 32px;
       text-align: center;
     }
 
-    .whitepaper-btn {
-      background: transparent;
-      color: var(--primary-green);
-      border: 2px solid var(--primary-green);
-    }
-
-    .whitepaper-btn:hover {
-      background: var(--primary-green);
-      color: black;
-      box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-    }
-
-    .blue-btn {
-      background: var(--primary-blue);
-      color: white;
-      border: none;
-    }
-    
-    .blue-btn:hover {
-      background: #1a4eb8;
-      box-shadow: 0 0 20px rgba(43, 103, 226, 0.5);
-    }
-
-    .buy-sage-btn-full {
-      background-color: white;
-      color: var(--primary-dark-green);
-      border: 2px solid var(--primary-dark-green);
-    }
-
-    .buy-sage-btn-full:hover {
-      background-color: var(--primary-dark-green);
-      color: white;
-      box-shadow: 0 0 20px rgba(0, 100, 0, 0.5);
-    }
-
-    .market-btn {
-      background: #0ea5e9;
-      color: white;
-      border: none;
-    }
-
-    .market-btn:hover {
-      background: #0284c7;
-      box-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
-    }
-
-    .promote-btn {
-      background: linear-gradient(90deg, #ff8a00, #e52e71);
-      color: white;
-      border: none;
-      padding: 14px 28px;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(229, 46, 113, 0.4);
-      transition: 0.3s;
-    }
-
-    .promote-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(229, 46, 113, 0.6);
-    }
-
-    /* Images & Galleries */
     .hero-image {
-      max-width: 220px;
-      width: 100%;
-      height: auto;
-      margin: 20px auto;
       display: block;
-      filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
+      width: min(220px, 65%);
+      height: auto;
+      margin: 20px auto 26px;
+      filter: drop-shadow(0 0 24px rgba(255,255,255,.08));
     }
 
-    .gallery-container {
+    .hero h1 {
+      margin: 12px 0;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+    }
+
+    .hero h4 {
+      margin: 12px 0 24px;
+      color: var(--green);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero-copy {
+      width: min(720px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+      color: #d3dce6;
+      line-height: 2;
+      box-shadow: 0 12px 40px rgba(0,0,0,.16);
+    }
+
+    .hero-copy strong {
+      color: white;
+    }
+
+    .section-heading {
+      margin: 55px 0 12px;
+      color: white;
+      text-align: center;
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+    }
+
+    .section-subtitle {
+      width: min(650px, calc(100% - 36px));
+      margin: 0 auto;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* Social links */
+
+    .fixed-icons {
+      position: fixed;
+      z-index: 900;
+      top: 50%;
+      left: 12px;
       display: flex;
       flex-direction: column;
-      gap: 30px;
-      align-items: center;
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
+      gap: 12px;
+      transform: translateY(-50%);
+    }
+
+    .fixed-icons a {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 50%;
+      background: rgba(10,15,22,.86);
+      box-shadow: 0 4px 15px rgba(0,0,0,.25);
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .fixed-icons a:hover {
+      transform: translateX(5px) scale(1.07);
+      border-color: var(--green);
+    }
+
+    .fixed-icons img {
+      display: block;
+      width: 23px;
+      height: 23px;
+      object-fit: contain;
+    }
+
+    /* Gallery */
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      width: min(1000px, calc(100% - 36px));
+      margin: 45px auto 75px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      align-self: start;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--glass);
+      box-shadow: 0 12px 32px rgba(0,0,0,.22);
+      transition: transform .3s ease, border-color .3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,245,138,.3);
     }
 
     .gallery-item img {
+      display: block;
       width: 100%;
       height: auto;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     }
 
-    /* Modal Styling */
-    .modal-overlay {
+    .gallery-item:last-child {
+      grid-column: 1 / -1;
+      width: min(100%, 650px);
+      justify-self: center;
+    }
+
+    /* Rebellion */
+
+    .rebellion-hero {
+      padding-top: 20px;
+    }
+
+    .rebellion-hero .hero-image {
+      width: min(230px, 65%);
+    }
+
+    /* Roadmap */
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      width: min(1050px, calc(100% - 36px));
+      margin: 38px auto 70px;
+    }
+
+    .roadmap-card {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.018));
+      text-align: left;
+      box-shadow: 0 10px 30px rgba(0,0,0,.18);
+      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    }
+
+    .roadmap-card::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 4px;
+      background: linear-gradient(var(--green-light), var(--green));
+      content: "";
+    }
+
+    .roadmap-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0,245,138,.35);
+      box-shadow: 0 18px 42px rgba(0,0,0,.3);
+    }
+
+    .roadmap-card h3 {
+      margin: 0 0 12px;
+      color: var(--green);
+      font-size: 19px;
+    }
+
+    .roadmap-card p {
+      color: #c5ced9;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .roadmap-full-width {
+      grid-column: 1 / -1;
+      text-align: center;
+    }
+
+    .roadmap-full-width::before {
       display: none;
+    }
+
+    .roadmap-full-width h3 {
+      color: white;
+    }
+
+    /* Whitepaper */
+
+    .whitepaper-content {
+      display: none;
+      width: min(900px, calc(100% - 36px));
+      margin: 28px auto 60px;
+      padding: clamp(20px, 5vw, 48px);
+      overflow-wrap: anywhere;
+      border: 1px solid rgba(0,245,138,.23);
+      border-radius: 22px;
+      background: linear-gradient(145deg, #111a20, #090e13);
+      box-shadow: 0 20px 55px rgba(0,0,0,.28);
+      text-align: left;
+    }
+
+    .whitepaper-content .document-cover {
+      margin-bottom: 42px;
+      text-align: center;
+    }
+
+    .whitepaper-content .document-cover h1 {
+      margin: 0;
+      color: var(--green);
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      letter-spacing: 3px;
+    }
+
+    .whitepaper-content .document-cover p {
+      margin-top: 10px;
+    }
+
+    .whitepaper-content h2 {
+      margin-top: 42px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      color: var(--green);
+      font-size: 22px;
+    }
+
+    .whitepaper-content h3 {
+      margin-top: 28px;
+      color: white;
+      font-size: 18px;
+    }
+
+    .whitepaper-content p,
+    .whitepaper-content li {
+      margin-bottom: 14px;
+      color: #d0d8e2;
+      font-size: 14px;
+      line-height: 1.95;
+    }
+
+    .whitepaper-content ul {
+      padding-left: 24px;
+    }
+
+    .whitepaper-content li::marker {
+      color: var(--green);
+    }
+
+    .whitepaper-content strong {
+      color: #f2f7fb;
+    }
+
+    .whitepaper-content em {
+      color: #b5c4d1;
+    }
+
+    .whitepaper-table-wrap {
+      width: 100%;
+      margin: 24px 0;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .whitepaper-table {
+      width: 100%;
+      min-width: 420px;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .whitepaper-table th,
+    .whitepaper-table td {
+      padding: 13px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .whitepaper-table th {
+      background: rgba(0,245,138,.09);
+      color: var(--green);
+    }
+
+    .whitepaper-table td {
+      color: #d0d8e2;
+    }
+
+    .whitepaper-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Business promotion modal */
+
+    .modal-overlay {
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
       z-index: 10001;
-      justify-content: center;
+      inset: 0;
+      display: none;
       align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(0,0,0,.83);
+      backdrop-filter: blur(9px);
+      -webkit-backdrop-filter: blur(9px);
+    }
+
+    .modal-overlay.open {
+      display: flex;
     }
 
     .modal-content {
-      background: var(--dark-bg);
-      padding: 30px;
-      border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      width: 90%;
-      max-width: 400px;
-      text-align: left;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.9);
       position: relative;
+      width: min(100%, 460px);
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 30px;
+      border: 1px solid rgba(0,245,138,.2);
+      border-radius: 22px;
+      background: #101820;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+      text-align: left;
     }
 
     .modal-content h3 {
-      margin-top: 0;
-      color: white;
-      opacity: 1; /* Override global animation opacity */
-      transform: none;
+      margin: 0 35px 12px 0;
+      font-size: 23px;
+    }
+
+    .modal-description {
+      margin-bottom: 25px;
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .close-modal {
       position: absolute;
-      top: 15px;
-      right: 20px;
-      color: #aaa;
-      font-size: 24px;
-      cursor: pointer;
-      background: none;
+      top: 12px;
+      right: 16px;
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
       border: none;
+      border-radius: 10px;
+      background: rgba(255,255,255,.06);
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
     }
-    
-    .close-modal:hover { color: white; }
+
+    .close-modal:hover {
+      background: rgba(255,255,255,.12);
+    }
 
     .form-group {
-      margin-bottom: 15px;
+      margin-bottom: 18px;
     }
 
     .form-group label {
       display: block;
-      margin-bottom: 5px;
-      color: #ccc;
+      margin-bottom: 7px;
+      color: #dce4ed;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      display: block;
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 11px;
+      outline: none;
+      background: #080d12;
+      color: white;
       font-size: 14px;
     }
 
-    .form-group input, .form-group textarea {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #333;
-      background: #0a0a0a;
-      color: white;
-      box-sizing: border-box;
-      font-family: inherit;
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(0,245,138,.08);
     }
 
     .form-group textarea {
+      min-height: 100px;
       resize: vertical;
-      height: 80px;
     }
 
     .submit-btn {
       width: 100%;
-      background: #25D366; /* WhatsApp Green */
-      color: white;
+      min-height: 52px;
+      margin-top: 5px;
+      padding: 13px 18px;
       border: none;
-      padding: 12px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 16px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #25d366, #159447);
+      color: white;
+      font-weight: 800;
       cursor: pointer;
-      margin-top: 10px;
+      transition: transform .2s ease, box-shadow .2s ease;
     }
-    .submit-btn:hover { background: #1ebe57; }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(37,211,102,.2);
+    }
+
+    /* Cookie notice */
+
+    .cookie-banner {
+      position: fixed;
+      z-index: 10000;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 16px 20px;
+      border-top: 1px solid var(--border);
+      background: rgba(5,9,13,.97);
+      color: #d3dce6;
+      font-size: 13px;
+      box-shadow: 0 -8px 30px rgba(0,0,0,.2);
+    }
+
+    .cookie-banner a {
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    .cookie-banner button {
+      padding: 9px 19px;
+      border: none;
+      border-radius: 10px;
+      background: var(--green);
+      color: #06150d;
+      font-weight: 800;
+      cursor: pointer;
+    }
 
     /* Footer */
+
     footer {
-      padding: 40px;
-      color: #aaa;
-      background: rgba(0,0,0,0.8);
-      margin-top: 50px;
-      font-size: 14px;
-      border-top: 1px solid #222;
+      margin-top: 55px;
+      padding: 38px 20px;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,.28);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      margin-top: 15px;
     }
 
     footer a {
-      color: #00ffcc;
+      color: var(--green);
       text-decoration: none;
-      margin: 0 8px;
     }
 
     footer a:hover {
       text-decoration: underline;
+    }
+
+    /* Scroll reveal: content is visible even if JavaScript fails */
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    .js-ready .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .js-ready .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 700px) {
+      .top-nav {
+        padding-top: 20px;
+      }
+
+      .tab-container {
+        width: min(100%, 420px);
+      }
+
+      .tab-btn {
+        padding: 11px 8px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding-top: 16px;
+      }
+
+      .hero-image {
+        width: min(185px, 60%);
+      }
+
+      .hero-copy {
+        padding: 20px;
+        font-size: 14px;
+      }
+
+      .cta-container {
+        margin: 48px auto 58px;
+      }
+
+      .button-group {
+        width: min(100%, 430px);
+      }
+
+      .btn-base {
+        min-height: 54px;
+        padding: 14px;
+        font-size: 12px;
+      }
+
+      .gallery-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .gallery-item:last-child {
+        grid-column: auto;
+        width: 100%;
+      }
+
+      .roadmap-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .roadmap-full-width {
+        grid-column: auto;
+      }
+
+      .roadmap-card {
+        padding: 23px;
+      }
+
+      .whitepaper-content {
+        padding: 21px 17px;
+      }
+
+      .whitepaper-content h2 {
+        font-size: 20px;
+      }
+
+      .fixed-icons {
+        left: 7px;
+        gap: 9px;
+      }
+
+      .fixed-icons a {
+        width: 31px;
+        height: 31px;
+      }
+
+      .fixed-icons img {
+        width: 19px;
+        height: 19px;
+      }
+
+      .modal-content {
+        padding: 25px 20px;
+      }
+
+      footer {
+        padding: 30px 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+
+      .js-ready .reveal {
+        opacity: 1;
+        transform: none;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<!-- Fixed Social Icons -->
-<div class="fixed-icons">
-  <a href="https://whatsapp.com/channel/0029VbAQrDuHbFV0j8sLVv0X" target="_blank"><img src="icons/whatsapp.png" alt="WhatsApp"></a>
-  <a href="mailto:support@blockchain-sage.com"><img src="icons/mail.png" alt="Mail"></a>
-  <a href="https://www.facebook.com/profile.php?id=61560317553974" target="_blank"><img src="icons/Facebook.jpg" alt="Facebook"></a>
-  <a href="https://t.me/IAMBlockchainsage" target="_blank"><img src="icons/telegram.png" alt="Telegram"></a>
-  <a href="https://x.com/Bl0ckchainsage" target="_blank"><img src="icons/x.png" alt="X (Twitter)"></a>
-  <a href="https://youtube.com/@BlockchainSAGE" target="_blank"><img src="icons/youtube.png" alt="YouTube"></a>
-</div>
+  <!-- Social media links -->
+  <aside class="fixed-icons" aria-label="Social media links">
+    <a href="https://whatsapp.com/channel/0029VbAQrDuHbFV0j8sLVv0X"
+       target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+      <img src="icons/whatsapp.png" alt="">
+    </a>
 
-<!-- Header / Navigation -->
-<header class="top-nav">
-  <button class="promote-btn" onclick="openModal()">🚀 Promote Your Business</button>
-  
-  <div class="tab-container">
-    <button class="tab-btn active" onclick="switchTab('sage')">Blockchain Sage</button>
-    <button class="tab-btn" onclick="switchTab('rebellion')">Rebellion</button>
-  </div>
-</header>
+    <a href="mailto:support@blockchain-sage.com" aria-label="Email support">
+      <img src="icons/mail.png" alt="">
+    </a>
 
-<!-- TAB 1: BLOCKCHAIN SAGE -->
-<section id="sage" class="tab-content active main-content">
-  <img src="page.png" alt="Blockchain Sage" class="hero-image">
-  <h4>Official Website</h4>
+    <a href="https://www.facebook.com/profile.php?id=61560317553974"
+       target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <img src="icons/Facebook.jpg" alt="">
+    </a>
 
-  <p>
-    I have a mission. I have a vision.<br> Cryptocurrency is the future of the global economy.<br>
-    Cryptocurrency is the hub of what lies ahead <br>and I'm dedicated to making this economic reform<br>
-    a stepping stone for the layman.
-  </p>
+    <a href="https://t.me/IAMBlockchainsage"
+       target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+      <img src="icons/telegram.png" alt="">
+    </a>
 
-  <h2>SAGE TOKEN</h2>
+    <a href="https://x.com/Bl0ckchainsage"
+       target="_blank" rel="noopener noreferrer" aria-label="X">
+      <img src="icons/x.png" alt="">
+    </a>
 
-  <div class="cta-container">
-    <h3>Is Here</h3>
-    <div class="button-group">
-      <a href="whitepaper.html" class="btn-base whitepaper-btn">WHITEPAPER</a>
-      <a href="mine.html" class="btn-base blue-btn">MINE SAGE TOKEN</a>
-      <a href="https://pancakeswap.finance/swap?outputCurrency=0xB0b046e9f0C2cf61883f07273797dDB82E95cb79" class="btn-base buy-sage-btn-full" target="_blank">BUY SAGE TOKEN</a>
-      <a href="https://pancakeswap.finance/swap?outputCurrency=0x04C28A31774B4Ef7eAFc3cDefFed1d30f914A3Cd" class="btn-base buy-sage-btn-full" target="_blank">BUY REWARDED</a>
-      <button onclick="window.location.href='market.html'" class="btn-base market-btn">📊 View Live Crypto Market</button>
+    <a href="https://youtube.com/@BlockchainSAGE"
+       target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+      <img src="icons/youtube.png" alt="">
+    </a>
+  </aside>
+
+  <!-- Header -->
+  <header class="top-nav">
+    <p class="brand-label">Blockchain Sage Ecosystem</p>
+
+    <button type="button" class="promote-btn" onclick="openModal()">
+      🚀 Promote Your Business
+    </button>
+
+    <nav class="tab-container" aria-label="Main navigation">
+      <button type="button" class="tab-btn active"
+              data-tab="sage" aria-pressed="true"
+              onclick="switchTab('sage')">
+        Blockchain Sage
+      </button>
+
+      <button type="button" class="tab-btn"
+              data-tab="rebellion" aria-pressed="false"
+              onclick="switchTab('rebellion')">
+        Rebellion
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ==================================
+         BLOCKCHAIN SAGE
+    =================================== -->
+    <section id="sage" class="tab-content active">
+
+      <div class="hero">
+        <img src="page.png" alt="Blockchain Sage" class="hero-image reveal">
+
+        <p class="brand-label">Official Website</p>
+
+        <h1 class="reveal">BLOCKCHAIN <span class="green-text">SAGE</span></h1>
+
+        <div class="hero-copy reveal">
+          I have a mission. I have a vision.<br>
+          Cryptocurrency is the future of the global economy.<br>
+          Cryptocurrency is the hub of what lies ahead, and I'm
+          dedicated to making this economic reform a stepping stone
+          for the layman.
+        </div>
+      </div>
+
+      <!-- Main buttons are intentionally placed below the introduction -->
+      <div class="cta-container">
+        <h2 class="section-heading reveal">SAGE TOKEN</h2>
+        <p class="section-subtitle reveal">
+          Discover the project, participate in the ecosystem, and explore
+          available token resources.
+        </p>
+
+        <div class="button-group">
+          <a href="whitepaper.html" class="btn-base whitepaper-btn">
+            📖 Read Sage Whitepaper
+          </a>
+
+          <a href="mine.html" class="btn-base blue-btn">
+            ⛏️ Mine Sage Token
+          </a>
+
+          <a href="https://pancakeswap.finance/swap?outputCurrency=0xB0b046e9f0C2cf61883f07273797dDB82E95cb79"
+             class="btn-base buy-sage-btn-full"
+             target="_blank" rel="noopener noreferrer">
+            ↗ Buy Sage Token
+          </a>
+
+          <a href="market.html" class="btn-base market-btn">
+            📊 View Live Crypto Market
+          </a>
+        </div>
+      </div>
+
+      <!-- Sage image gallery -->
+      <section aria-label="About Blockchain Sage">
+        <h2 class="section-heading reveal">Explore Our Ecosystem</h2>
+        <p class="section-subtitle reveal">
+          Learn about the project, its vision, tokenomics, and roadmap.
+        </p>
+
+        <div class="gallery-container">
+          <div class="gallery-item reveal">
+            <img src="images/About Sage.png" alt="About Sage">
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="images/1.png" alt="Blockchain Sage information">
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="images/2.png" alt="Blockchain Sage project details">
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="images/3.png" alt="Blockchain Sage ecosystem details">
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="images/Roadmap.png" alt="Sage project roadmap">
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="images/Tokenomics.png" alt="Sage tokenomics">
+          </div>
+
+          <div class="gallery-item reveal">
+            <img src="images/coming soon.png" alt="Upcoming Sage features">
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ==================================
+         REBELLION
+    =================================== -->
+    <section id="rebellion" class="tab-content">
+
+      <div class="hero rebellion-hero">
+        <img src="rebel.png" alt="Rebellion Logo" class="hero-image reveal">
+
+        <p class="brand-label">A New Digital Economy</p>
+
+        <h1 class="reveal">REBELLION</h1>
+
+        <h4 class="reveal">Building a Community-Powered Digital Economy</h4>
+
+        <div class="hero-copy reveal">
+          Welcome to the Rebellion ecosystem.<br>
+          A proposed digital infrastructure designed to empower communities
+          through accessible digital participation, peer-to-peer exchange,
+          and practical commerce.
+        </div>
+      </div>
+
+      <!-- Whitepaper button -->
+      <div class="cta-container">
+        <h2 class="section-heading reveal">Discover Rebellion</h2>
+        <p class="section-subtitle reveal">
+          Read the project vision, proposed technology, tokenomics,
+          and development strategy.
+        </p>
+
+        <div class="button-group">
+          <button id="wp-toggle-btn"
+                  type="button"
+                  class="btn-base whitepaper-btn"
+                  aria-expanded="false"
+                  aria-controls="rebellionWhitepaper"
+                  onclick="toggleWhitepaper()">
+            📖 Read Official Whitepaper
+          </button>
+        </div>
+      </div>
+
+      <!-- EMBEDDED REBELLION WHITEPAPER -->
+      <article id="rebellionWhitepaper"
+               class="whitepaper-content"
+               aria-label="Rebellion Whitepaper">
+
+        <div class="document-cover">
+          <p class="brand-label">Official Project Document</p>
+          <h1>REBELLION</h1>
+          <p class="green-text">
+            <strong>Building a Community-Powered Digital Economy</strong>
+          </p>
+          <p class="muted">Whitepaper — Version 1.0 Draft | October 2026</p>
+        </div>
+
+        <ul>
+          <li><strong>Project:</strong> Rebellion</li>
+          <li><strong>Proposed token name:</strong> REBELLION</li>
+          <li><strong>Proposed ticker:</strong> REB — subject to availability</li>
+          <li><strong>Core products:</strong> Mobile mining, token wallet,
+            peer-to-peer trading, and goods-and-services marketplace.</li>
+          <li><strong>Vision:</strong> To build a digital economy where
+            participation creates opportunity and digital tokens can be
+            used for practical transactions.</li>
+        </ul>
+
+        <p><em>This is a concept-stage draft. Network selection, token supply,
+          distribution percentages, legal structure, and technical
+          specifications must be finalized before publication as the
+          project's definitive whitepaper.</em></p>
+
+        <h2>1. Abstract</h2>
+
+        <p>Rebellion is a proposed community-driven cryptocurrency ecosystem
+          designed to connect digital participation with practical economic
+          activity.</p>
+
+        <p>The project aims to introduce users to digital assets through a
+          mobile mining experience, enable eligible users to hold and transfer
+          REBELLION tokens, and create a marketplace where users and merchants
+          can exchange goods and services using the token.</p>
+
+        <p>Many app-based mining projects focus primarily on accumulating
+          in-app balances or generating excitement about a possible exchange
+          listing. Rebellion aims to take a broader approach by building
+          toward a functional ecosystem with clearly defined token rules,
+          transparent reward accounting, reliable transactions, and
+          merchant utility.</p>
+
+        <p>The long-term objective is to develop a sustainable relationship
+          between users, token holders, merchants, and ecosystem partners.</p>
+
+        <p>Rebellion does not promise profits, guaranteed token appreciation,
+          or guaranteed exchange listings. Its success will depend on
+          execution, adoption, token economics, legal compliance, and the
+          value that its products deliver.</p>
+
+        <h2>2. Vision and Mission</h2>
+
+        <h3>Vision</h3>
+        <p>To become a trusted digital economy where people can earn,
+          exchange, and spend digital tokens through a single connected
+          ecosystem.</p>
+
+        <h3>Mission</h3>
+        <p>To make digital asset participation more accessible by combining
+          mobile mining, peer-to-peer exchange, and practical commerce in
+          one platform.</p>
+
+        <h3>Core Values</h3>
+        <ul>
+          <li><strong>Accessibility:</strong> Make the platform understandable
+            and usable for newcomers.</li>
+          <li><strong>Transparency:</strong> Explain mining rules, token supply,
+            distribution, and withdrawals.</li>
+          <li><strong>Utility:</strong> Build real reasons to use REB beyond
+            holding or trading it.</li>
+          <li><strong>Security:</strong> Protect accounts, transactions, and
+            user information.</li>
+          <li><strong>Community:</strong> Encourage participation while
+            preventing manipulation and abuse.</li>
+          <li><strong>Sustainability:</strong> Align rewards with realistic
+            economic activity and available resources.</li>
+        </ul>
+
+        <h2>3. The Problem Rebellion Aims to Solve</h2>
+
+        <p>Rebellion is designed around five challenges in the app-based
+        crypto economy.</p>
+
+        <ul>
+          <li><strong>Limited token utility.</strong> Some platforms let users
+            accumulate balances without providing a clear path to transfer
+            or spend them.</li>
+          <li><strong>Disconnected services.</strong> Mining, wallets, trading,
+            and online shopping are often handled by separate products.</li>
+          <li><strong>Unclear reward systems.</strong> Users may not understand
+            how rewards are calculated, whether balances are transferable,
+            or what conditions apply to withdrawals.</li>
+          <li><strong>Merchant adoption barriers.</strong> Businesses need
+            straightforward tools to list products, accept payments, and
+            manage orders.</li>
+          <li><strong>Trust and security concerns.</strong> Users need
+            protection against impersonation, fraudulent transactions,
+            misleading reward claims, and unsafe wallet interactions.</li>
+        </ul>
+
+        <h2>4. The Rebellion Ecosystem</h2>
+
+        <ul>
+          <li><strong>Rebellion Mining App:</strong> User participation and
+            reward tracking.</li>
+          <li><strong>REB Wallet:</strong> Balances and transfers.</li>
+          <li><strong>P2P Exchange:</strong> User-to-user trading.</li>
+          <li><strong>Rebellion Marketplace:</strong> Goods, services,
+            merchants, and REB payments.</li>
+        </ul>
+
+        <h3>4.1 Mobile Mining</h3>
+
+        <p>The Rebellion app will allow eligible users to participate in
+        scheduled mining sessions and earn rewards according to published
+        rules. Proposed features include:</p>
+
+        <ul>
+          <li>Daily mining sessions.</li>
+          <li>A personal balance and reward history.</li>
+          <li>Transparent mining-rate and eligibility rules.</li>
+          <li>Referral incentives subject to fraud prevention.</li>
+          <li>Account verification where necessary.</li>
+          <li>Clear distinction between pending rewards and transferable tokens.</li>
+          <li>A withdrawal interface once on-chain or otherwise supported
+            transfers are available.</li>
+        </ul>
+
+        <p><em>Important technical distinction: If users tap a button and
+        receive virtual balances, this is not necessarily proof-of-work
+        blockchain mining. Rebellion should describe its mechanism accurately
+        as app-based reward accrual unless actual blockchain mining is
+        implemented.</em></p>
+
+        <h3>4.2 REB Wallet and Withdrawals</h3>
+
+        <p>The wallet is intended to give users a way to view their eligible
+        REB balances and, when supported, transfer tokens.</p>
+
+        <ul>
+          <li>Balance and transaction history.</li>
+          <li>Deposit and withdrawal records, if supported by the chosen network.</li>
+          <li>Address validation and transaction-status tracking.</li>
+          <li>Account security controls.</li>
+          <li>Clear network fees and applicable limits.</li>
+        </ul>
+
+        <h3>4.3 Peer-to-Peer Trading</h3>
+
+        <p>Rebellion plans to develop a system through which users can buy
+        and sell REB with other participants.</p>
+
+        <ul>
+          <li>User listings and quoted prices.</li>
+          <li>Order creation and completion tracking.</li>
+          <li>Dispute resolution and fraud reporting.</li>
+          <li>Reputation or transaction-history features.</li>
+          <li>Escrow or other safeguards, if legally permitted and technically
+            supported.</li>
+        </ul>
+
+        <h3>4.4 Rebellion Marketplace</h3>
+
+        <p>The marketplace is intended to be one of the project's principal
+        sources of real-world token utility. Participating merchants may offer
+        products such as electronics, clothing, digital products,
+        subscriptions, and eligible services.</p>
+
+        <ul>
+          <li>Merchant registration and verification.</li>
+          <li>Product listings, descriptions, and pricing.</li>
+          <li>REB-denominated checkout and order tracking.</li>
+          <li>Refund and cancellation procedures, and customer reviews.</li>
+        </ul>
+
+        <h2>5. Token Design and Tokenomics</h2>
+
+        <div class="whitepaper-table-wrap">
+          <table class="whitepaper-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Proposed Approach</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Token name</td>
+                <td>REBELLION</td>
+              </tr>
+              <tr>
+                <td>Ticker</td>
+                <td>REB, subject to availability</td>
+              </tr>
+              <tr>
+                <td>Token type</td>
+                <td>Fungible digital token</td>
+              </tr>
+              <tr>
+                <td>Blockchain</td>
+                <td>To be selected after technical and cost evaluation</td>
+              </tr>
+              <tr>
+                <td>Maximum supply</td>
+                <td>To be finalized before launch</td>
+              </tr>
+              <tr>
+                <td>Mining rewards</td>
+                <td>Distributed under published emission rules</td>
+              </tr>
+              <tr>
+                <td>Transferability</td>
+                <td>Enabled only when technically and legally ready</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>5.2 Illustrative Allocation Model</h3>
+
+        <ul>
+          <li>Community mining and user rewards: <strong>45%</strong></li>
+          <li>Ecosystem and merchant growth: <strong>20%</strong></li>
+          <li>Treasury and long-term development: <strong>15%</strong></li>
+          <li>Team and contributors: <strong>10%</strong></li>
+          <li>Liquidity and market operations: <strong>10%</strong></li>
+        </ul>
+
+        <p><em>This allocation is illustrative and must be finalized before
+        token deployment. Vesting, treasury controls, liquidity management,
+        and distribution schedules should be documented transparently.</em></p>
+
+        <h2>6. Technology and Infrastructure</h2>
+
+        <p>Rebellion should use the simplest secure technology that supports
+        its actual product requirements.</p>
+
+        <ul>
+          <li><strong>Stage 1 — Build the application.</strong> Develop the
+            mobile app, backend reward ledger, user accounts, and
+            administrative controls.</li>
+          <li><strong>Stage 2 — Select a blockchain.</strong> Compare
+            established networks based on transaction costs, wallet
+            compatibility, and security.</li>
+          <li><strong>Stage 3 — Deploy the token.</strong> Implement the
+            token using an established standard.</li>
+          <li><strong>Stage 4 — Integrate wallets.</strong> Test transfers,
+            fees, failed transactions, and recovery procedures.</li>
+          <li><strong>Stage 5 — Introduce P2P trading and marketplace.</strong>
+            Build order tracking, settlement, and fraud controls.</li>
+        </ul>
+
+        <h2>7. Security and User Protection</h2>
+
+        <p>Security must be a core product requirement from the beginning,
+        not a feature added after launch.</p>
+
+        <ul>
+          <li>Independent smart-contract security reviews.</li>
+          <li>Secure account authentication and protection against
+            account takeovers.</li>
+          <li>Multi-signature controls for sensitive treasury operations.</li>
+          <li>Monitoring for unusual transactions, referral abuse,
+            and automated account farming.</li>
+        </ul>
+
+        <h2>8. Governance and Transparency</h2>
+
+        <p>Rebellion should begin with a clearly documented operating
+        structure and introduce community governance only when the project
+        is ready to support it responsibly.</p>
+
+        <p>Governance processes should establish clear responsibilities,
+        transparent project updates, documented treasury policies, and
+        appropriate ways for community members to provide feedback.</p>
+
+        <h2>9. Business Model and Revenue Sustainability</h2>
+
+        <p>Potential revenue sources include marketplace commissions,
+        optional merchant premium tools, paid merchant placements, and
+        integration fees.</p>
+
+        <p>The long-term business model should be based on sustainable
+        services and genuine user demand rather than relying solely on
+        token speculation or continued recruitment of new participants.</p>
+
+        <h2>10. Risk Factors and Limitations</h2>
+
+        <p>Rebellion remains a proposed ecosystem. Its implementation may
+        involve technical, commercial, regulatory, and adoption risks.</p>
+
+        <ul>
+          <li>Token values may fluctuate, and liquidity is not guaranteed.</li>
+          <li>Blockchain networks and smart contracts may experience
+            technical vulnerabilities or service disruptions.</li>
+          <li>Mining rewards and withdrawals will depend on the final
+            system design and published rules.</li>
+          <li>Marketplace adoption will depend on participating merchants,
+            customer demand, and reliable settlement.</li>
+          <li>Applicable laws and compliance requirements must be assessed
+            for each relevant market.</li>
+        </ul>
+
+        <h2>11. Legal and Regulatory Considerations</h2>
+
+        <p>Before launch, Rebellion should obtain appropriate legal advice
+        concerning digital assets, consumer protection, privacy, taxation,
+        payment services, and any licensing requirements that apply to
+        its proposed activities.</p>
+
+        <p>The project should publish accurate information about token
+        functionality, risks, eligibility requirements, fees, and
+        withdrawal conditions. No feature should be presented as available
+        until it has actually been implemented and verified.</p>
+
+        <h2>12. Implementation and Success Measures</h2>
+
+        <p>Progress should be measured using meaningful product and
+        operational indicators rather than community size alone.</p>
+
+        <ul>
+          <li>Application reliability and account security.</li>
+          <li>Transparent and accurately recorded reward balances.</li>
+          <li>Successful transactions and clearly reported failures.</li>
+          <li>Active users who use real platform features.</li>
+          <li>Verified merchants and completed marketplace orders.</li>
+          <li>Support response times and resolved user complaints.</li>
+        </ul>
+
+        <h2>13. Conclusion</h2>
+
+        <p>Rebellion's long-term ambition is to connect mobile participation
+        with a functional digital economy. Its success will not be determined
+        solely by how many people mine tokens or how quickly a token becomes
+        tradable. It will depend on whether users can interact with the
+        platform safely, whether the token's rules are transparent, whether
+        merchants find value in accepting it, and whether the project can
+        sustain its operations.</p>
+
+        <p><strong>Rebellion's defining objective is to move from earning
+        tokens to using them.</strong></p>
+
+        <hr style="border:0;border-top:1px solid rgba(255,255,255,.12);margin:35px 0">
+
+        <h2>Part 3: The Launch Strategy</h2>
+
+        <p><em>Pending decisions for finalization:</em></p>
+
+        <ul>
+          <li><strong>Blockchain choice:</strong> BNB Smart Chain (BEP-20),
+            Ethereum (ERC-20), Polygon, or TON.</li>
+          <li><strong>Maximum supply:</strong> 100M, 1B, 10B, or a custom model.</li>
+          <li><strong>Mining method:</strong> Tap-to-mine, proof-of-work,
+            or hybrid.</li>
+          <li><strong>Withdrawal structure:</strong> Direct on-chain transfers
+            versus internal transfers first.</li>
+          <li><strong>Trading rollout:</strong> P2P marketplace versus
+            open trading.</li>
+        </ul>
+
+        <p><em>Publication note: This document describes a proposed project
+        and contains draft tokenomics and future plans. It is not a guarantee
+        of launch, profitability, exchange listing, or token value.</em></p>
+      </article>
+
+      <!-- Rebellion Roadmap -->
+      <section aria-labelledby="roadmap-title">
+        <h2 id="roadmap-title" class="section-heading reveal">
+          Rebellion Roadmap
+        </h2>
+
+        <p class="section-subtitle reveal">
+          Building a new digital economy. Powered by the people.
+        </p>
+
+        <div class="roadmap-grid">
+
+          <article class="roadmap-card reveal">
+            <h3>Phase 1 — Foundation &amp; Mining</h3>
+            <p>Launch the Rebellion app, establish the mining system, build
+            the community, and publish the project's technical and economic
+            framework.</p>
+          </article>
+
+          <article class="roadmap-card reveal">
+            <h3>Phase 2 — Token Launch &amp; Transfers</h3>
+            <p>Develop the REB token infrastructure, establish transparent
+            tokenomics, implement secure transfers, and introduce eligible
+            withdrawal functionality.</p>
+          </article>
+
+          <article class="roadmap-card reveal">
+            <h3>Phase 3 — Trading Ecosystem</h3>
+            <p>Expand peer-to-peer trading, improve token accessibility,
+            and explore external wallet and exchange integrations.</p>
+          </article>
+
+          <article class="roadmap-card reveal">
+            <h3>Phase 4 — Rebellion Marketplace</h3>
+            <p>Launch a marketplace where verified merchants can offer goods
+            and services and eligible customers can pay using REB.</p>
+          </article>
+
+          <article class="roadmap-card reveal">
+            <h3>Phase 5 — Ecosystem Expansion</h3>
+            <p>Grow merchant participation, expand marketplace categories,
+            introduce partnerships, and improve the overall user experience.</p>
+          </article>
+
+          <article class="roadmap-card reveal">
+            <h3>Phase 6 — Global Digital Economy</h3>
+            <p>Explore additional Web3 integrations, developer tools, new
+            market opportunities, and community-driven ecosystem development.</p>
+          </article>
+
+          <article class="roadmap-card roadmap-full-width reveal">
+            <h3>Our Commitment</h3>
+            <p>We believe a successful digital ecosystem must be built on
+            transparency, security, utility, and community trust. Rebellion's
+            long-term ambition is not simply to distribute tokens. It is to
+            build an ecosystem where people can earn, exchange, and use
+            digital assets within a growing network of users and merchants.</p>
+          </article>
+
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+  <!-- Business promotion modal -->
+  <div id="promoteModal" class="modal-overlay"
+       role="dialog" aria-modal="true"
+       aria-labelledby="modal-title">
+
+    <div class="modal-content">
+      <button type="button" class="close-modal"
+              onclick="closeModal()" aria-label="Close dialog">
+        &times;
+      </button>
+
+      <h3 id="modal-title">Promote Your Business</h3>
+
+      <p class="modal-description">
+        Tell us about your business or project to request a promotional
+        feature across our network.
+      </p>
+
+      <form id="businessForm" onsubmit="submitToWhatsApp(event)">
+        <div class="form-group">
+          <label for="bizName">Business / Project Name</label>
+          <input type="text" id="bizName" name="bizName"
+                 required maxlength="120"
+                 placeholder="Enter your business name">
+        </div>
+
+        <div class="form-group">
+          <label for="bizDesc">Brief Description</label>
+          <textarea id="bizDesc" name="bizDesc"
+                    required maxlength="1500"
+                    placeholder="What does your business do?"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="bizLink">Website or Social Link (Optional)</label>
+          <input type="url" id="bizLink" name="bizLink"
+                 maxlength="500"
+                 placeholder="https://example.com">
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Send Request via WhatsApp
+        </button>
+      </form>
     </div>
   </div>
 
-  <div class="gallery-container">
-    <div class="gallery-item"><img src="images/About Sage.png" alt="About Sage"></div>
-    <div class="gallery-item"><img src="images/1.png" alt="Details 1"></div>
-    <div class="gallery-item"><img src="images/2.png" alt="Details 2"></div>
-    <div class="gallery-item"><img src="images/3.png" alt="Details 3"></div>
-    <div class="gallery-item"><img src="images/Roadmap.png" alt="Roadmap"></div>
-    <div class="gallery-item"><img src="images/Tokenomics.png" alt="Tokenomics"></div>
-    <div class="gallery-item"><img src="images/coming soon.png" alt="Coming Soon"></div>
-  </div>
-</section>
+  <!-- Cookie notice -->
+  <div id="cookie-banner" class="cookie-banner" role="region"
+       aria-label="Cookie notice">
+    <span>
+      We use cookies to improve your experience.
+      <a href="/privacy.html">Learn more</a>
+    </span>
 
-<!-- TAB 2: REBELLION -->
-<section id="rebellion" class="tab-content main-content">
-  <img src="rebel.png" alt="Rebellion Logo" class="hero-image">
-  <h4>The Future is Rebellion</h4>
-  
-  <p class="glass-panel">
-    Welcome to the Rebellion ecosystem. <br>
-    A revolutionary digital infrastructure designed to decentralize<br>
-    and empower the community outside traditional boundaries.
-  </p>
-
-  <div class="cta-container">
-    <h3>Project Documentation</h3>
-    <div class="button-group">
-      <a href="rebellion-whitepaper.html" class="btn-base whitepaper-btn">REBELLION WHITEPAPER</a>
-    </div>
+    <button type="button" id="accept-cookies">
+      Accept
+    </button>
   </div>
 
-  <div class="gallery-container">
-    <!-- Ensure you have a roadmap image for Rebellion in your images folder, or replace with text -->
-    <div class="gallery-item">
-      <h3>Rebellion Roadmap</h3>
-      <img src="images/rebellion-roadmap.png" alt="Rebellion Roadmap" onerror="this.style.display='none'">
-      <p style="font-size:14px; color:#aaa;">(Upload 'rebellion-roadmap.png' to your images folder)</p>
-    </div>
-  </div>
-</section>
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year">2026</span> Blockchain Sage &amp; Rebellion</p>
+    <p>All rights reserved.</p>
 
-<!-- Promote Business Modal -->
-<div id="promoteModal" class="modal-overlay">
-  <div class="modal-content">
-    <button class="close-modal" onclick="closeModal()">&times;</button>
-    <h3>Promote Your Business</h3>
-    <p style="font-size: 14px; color: #aaa; margin-top: 0; padding: 0; background: none; border: none; box-shadow: none;">Fill in your details to get featured across our network.</p>
-    
-    <form id="businessForm" onsubmit="submitToWhatsApp(event)">
-      <div class="form-group">
-        <label for="bizName">Business / Project Name</label>
-        <input type="text" id="bizName" required placeholder="e.g., Tech Solutions LLC">
-      </div>
-      <div class="form-group">
-        <label for="bizDesc">Brief Description</label>
-        <textarea id="bizDesc" required placeholder="What does your business do?"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="bizLink">Website or Social Link (Optional)</label>
-        <input type="url" id="bizLink" placeholder="https://...">
-      </div>
-      <button type="submit" class="submit-btn">Send via WhatsApp</button>
-    </form>
-  </div>
-</div>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms &amp; Conditions</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </footer>
 
-<!-- Footer -->
-<footer>
-  © 2026 Blockchain Sage & Rebellion — All rights reserved<br><br>
-  <a href="/privacy.html">Privacy Policy</a> |
-  <a href="/terms.html">Terms & Conditions</a> |
-  <a href="/contact.html">Contact</a>
-</footer>
+  <script>
+    "use strict";
 
-<!-- Cookie Consent -->
-<div id="cookie-banner" style="position:fixed;bottom:0;width:100%;background:#000;padding:15px;display:none;z-index:10000; border-top: 1px solid #333;">
-  We use cookies to improve experience and serve ads.
-  <a href="/privacy.html" style="color:#00ffcc;">Learn more</a>
-  <button id="accept-cookies" style="margin-left:15px;padding:8px 16px;border-radius:20px; background:var(--primary-green); color:black; border:none; cursor:pointer; font-weight:bold;">Accept</button>
-</div>
+    // Enable animations only when JavaScript is available.
+    document.body.classList.add("js-ready");
 
-<!-- Scripts -->
-<script>
-  // Intersection Observer for Scroll Animations
-  const observeElements = () => {
-    const elements = document.querySelectorAll(
-      'h1,h2,h3,h4,p,img,section,footer,.gallery-item,.btn-base,.promote-btn'
-    );
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+    // Automatically update the copyright year.
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Reveal elements when they enter the viewport.
+    let revealObserver = null;
+
+    function observeElements() {
+      const elements = document.querySelectorAll(
+        ".reveal:not(.visible)"
+      );
+
+      if (!("IntersectionObserver" in window)) {
+        elements.forEach(el => el.classList.add("visible"));
+        return;
+      }
+
+      if (!revealObserver) {
+        revealObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.08,
+          rootMargin: "0px 0px 40px 0px"
+        });
+      }
+
+      elements.forEach(el => revealObserver.observe(el));
+    }
+
+    // Main navigation.
+    function switchTab(tabId) {
+      const target = document.getElementById(tabId);
+
+      if (!target || !target.classList.contains("tab-content")) {
+        return;
+      }
+
+      document.querySelectorAll(".tab-btn").forEach(btn => {
+        const isActive = btn.dataset.tab === tabId;
+
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-pressed", String(isActive));
       });
-    }, { threshold: 0.1 });
-    elements.forEach(el => observer.observe(el));
-  };
-  
-  // Run observer on load
-  observeElements();
 
-  // Tab Switching Logic
-  function switchTab(tabId) {
-    // Update active class on buttons
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    event.currentTarget.classList.add('active');
+      document.querySelectorAll(".tab-content").forEach(section => {
+        const isActive = section.id === tabId;
 
-    // Update active class on content sections
-    document.querySelectorAll('.tab-content').forEach(content => {
-      content.classList.remove('active');
-      content.style.display = 'none'; // force hide
+        section.classList.toggle("active", isActive);
+        section.style.display = isActive ? "block" : "none";
+      });
+
+      observeElements();
+    }
+
+    // Rebellion whitepaper toggle.
+    function toggleWhitepaper() {
+      const paper = document.getElementById("rebellionWhitepaper");
+      const button = document.getElementById("wp-toggle-btn");
+
+      const isOpening = paper.style.display !== "block";
+
+      paper.style.display = isOpening ? "block" : "none";
+
+      button.classList.toggle("active-btn", isOpening);
+      button.setAttribute("aria-expanded", String(isOpening));
+
+      button.textContent = isOpening
+        ? "✕ Close Whitepaper"
+        : "📖 Read Official Whitepaper";
+
+      if (isOpening) {
+        paper.scrollIntoView({
+          behavior: window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches ? "auto" : "smooth",
+          block: "start"
+        });
+      }
+    }
+
+    // Business promotion dialog.
+    const modal = document.getElementById("promoteModal");
+    let previousFocus = null;
+
+    function openModal() {
+      previousFocus = document.activeElement;
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+
+      modal.querySelector(".close-modal").focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+
+      if (previousFocus && typeof previousFocus.focus === "function") {
+        previousFocus.focus();
+      }
+    }
+
+    modal.addEventListener("click", event => {
+      if (event.target === modal) {
+        closeModal();
+      }
     });
-    
-    const activeSection = document.getElementById(tabId);
-    activeSection.style.display = 'block'; // force show
-    
-    // Slight delay to re-trigger animations
-    setTimeout(() => {
-      activeSection.classList.add('active');
-      observeElements(); // Re-bind observer for the newly visible tab
-    }, 50);
-  }
 
-  // Modal Logic
-  const modal = document.getElementById('promoteModal');
-  function openModal() { modal.style.display = 'flex'; }
-  function closeModal() { modal.style.display = 'none'; }
-  
-  // Close modal when clicking outside the box
-  window.onclick = function(event) {
-    if (event.target == modal) closeModal();
-  }
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && modal.classList.contains("open")) {
+        closeModal();
+      }
+    });
 
-  // Submit form to WhatsApp
-  function submitToWhatsApp(e) {
-    e.preventDefault();
-    const name = document.getElementById('bizName').value;
-    const desc = document.getElementById('bizDesc').value;
-    const link = document.getElementById('bizLink').value;
-    
-    let text = `*New Business Promotion Request* 🚀\n\n`;
-    text += `*Business Name:* ${name}\n`;
-    text += `*Description:* ${desc}\n`;
-    if(link) text += `*Link:* ${link}\n`;
-    
-    const encodedText = encodeURIComponent(text);
-    const waNumber = "+2348116439379";
-    
-    window.open(`https://wa.me/${waNumber.replace('+', '')}?text=${encodedText}`, '_blank');
-    closeModal();
-    document.getElementById('businessForm').reset();
-  }
+    // Send a business promotion request through WhatsApp.
+    function submitToWhatsApp(event) {
+      event.preventDefault();
 
-  // Cookie Logic
-  const banner = document.getElementById("cookie-banner");
-  if (!localStorage.getItem("cookieConsent")) banner.style.display = "block";
-  document.getElementById("accept-cookies").onclick = () => {
-    localStorage.setItem("cookieConsent", "accepted");
-    banner.style.display = "none";
-  };
-</script>
+      const name = document.getElementById("bizName").value.trim();
+      const description = document.getElementById("bizDesc").value.trim();
+      const link = document.getElementById("bizLink").value.trim();
+
+      if (!name || !description) {
+        return;
+      }
+
+      let message = "*New Business Promotion Request* 🚀\n\n";
+      message += "*Business Name:* " + name + "\n";
+      message += "*Description:* " + description + "\n";
+
+      if (link) {
+        message += "*Website / Social Link:* " + link + "\n";
+      }
+
+      const phoneNumber = "2348116439379";
+
+      const whatsappUrl =
+        "https://wa.me/" + phoneNumber +
+        "?text=" + encodeURIComponent(message);
+
+      // Open WhatsApp before closing the dialog.
+      const whatsappWindow = window.open(
+        whatsappUrl,
+        "_blank",
+        "noopener,noreferrer"
+      );
+
+      if (whatsappWindow) {
+        document.getElementById("businessForm").reset();
+        closeModal();
+      } else {
+        // If the browser blocks the new tab, keep the form available.
+        window.location.href = whatsappUrl;
+      }
+    }
+
+    // Cookie notice.
+    const cookieBanner = document.getElementById("cookie-banner");
+    const acceptCookies = document.getElementById("accept-cookies");
+
+    try {
+      if (localStorage.getItem("cookieConsent") !== "accepted") {
+        cookieBanner.style.display = "flex";
+      }
+    } catch (error) {
+      // Storage may be unavailable in some browser contexts.
+      cookieBanner.style.display = "flex";
+    }
+
+    acceptCookies.addEventListener("click", () => {
+      try {
+        localStorage.setItem("cookieConsent", "accepted");
+      } catch (error) {
+        // The banner can still be dismissed if storage is unavailable.
+      }
+
+      cookieBanner.style.display = "none";
+    });
+
+    // Initialize the page.
+    observeElements();
+    switchTab("sage");
+  </script>
 
 </body>
 </html>
