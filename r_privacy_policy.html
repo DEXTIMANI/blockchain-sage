@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +9,10 @@
 
   <meta
     name="description"
-    content="Privacy Policy for the Rebellion Network application operated by Blockchain Sage."
+    content="Privacy Policy for Rebellion Network, an application developed and maintained by an individual developer."
   >
+
+  <meta name="robots" content="index, follow">
 
   <style>
     :root {
@@ -60,7 +63,6 @@
       text-decoration: underline;
     }
 
-    /* Header */
     header {
       background: linear-gradient(135deg, #111827, #1e3a8a);
       color: white;
@@ -104,7 +106,6 @@
       color: #e0e7ff;
     }
 
-    /* Navigation */
     .nav-wrapper {
       position: sticky;
       top: 0;
@@ -156,7 +157,6 @@
       color: var(--heading);
     }
 
-    /* Layout */
     .container {
       max-width: 1100px;
       margin: 40px auto;
@@ -166,7 +166,6 @@
       gap: 35px;
     }
 
-    /* Sidebar */
     .sidebar {
       position: sticky;
       top: 90px;
@@ -188,6 +187,7 @@
 
     .sidebar ul {
       list-style: none;
+      margin: 0;
     }
 
     .sidebar li {
@@ -208,13 +208,13 @@
       text-decoration: none;
     }
 
-    /* Content */
     .content {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: clamp(25px, 5vw, 55px);
       box-shadow: var(--shadow);
+      min-width: 0;
     }
 
     section {
@@ -245,11 +245,11 @@
       margin-bottom: 16px;
     }
 
-    ul {
+    .content ul {
       margin: 10px 0 20px 22px;
     }
 
-    li {
+    .content li {
       margin-bottom: 9px;
     }
 
@@ -278,7 +278,6 @@
       word-break: break-word;
     }
 
-    /* Buttons */
     .actions {
       display: flex;
       gap: 10px;
@@ -311,7 +310,6 @@
       background: #d1d5db;
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 40px 20px 60px;
@@ -323,7 +321,6 @@
       color: var(--heading);
     }
 
-    /* Mobile */
     @media (max-width: 850px) {
       .container {
         grid-template-columns: 1fr;
@@ -360,7 +357,6 @@
       }
     }
 
-    /* Print */
     @media print {
       body {
         background: white;
@@ -405,38 +401,48 @@
 
 <body>
 
-  <!-- Header -->
   <header>
     <div class="header-container">
+
       <span class="brand">Blockchain Sage</span>
 
       <h1>Privacy Policy</h1>
 
       <p>
-        This privacy policy applies to the Rebellion Network app for mobile
-        devices, together with any related services operated by Blockchain Sage
-        (collectively, the "Application").
+        This Privacy Policy explains how Rebellion Network collects,
+        uses, stores, and protects information when you use the
+        application. Rebellion Network is developed and maintained
+        by an individual developer using the name Blockchain Sage.
       </p>
 
       <span class="effective-date">
-        Effective: October 3, 2026
+        Effective: October 28, 2026
       </span>
 
       <div class="actions">
-        <button class="action-button" onclick="window.print()">
+        <button
+          class="action-button"
+          onclick="window.print()"
+          type="button"
+        >
           Print Policy
         </button>
 
-        <button class="action-button secondary" onclick="scrollToTop()">
+        <button
+          class="action-button secondary"
+          onclick="scrollToTop()"
+          type="button"
+        >
           Back to Top
         </button>
       </div>
+
     </div>
   </header>
 
-  <!-- Navigation -->
   <div class="nav-wrapper">
-    <nav>
+    <nav aria-label="Main navigation">
+
       <div class="nav-logo">Rebellion Network</div>
 
       <button
@@ -444,504 +450,635 @@
         id="menuButton"
         aria-label="Toggle navigation"
         aria-expanded="false"
+        aria-controls="navLinks"
+        type="button"
       >
         ☰
       </button>
 
       <ul class="nav-links" id="navLinks">
         <li><a href="#collection">Information</a></li>
+        <li><a href="#functionality">App Features</a></li>
         <li><a href="#rights">Your Rights</a></li>
-        <li><a href="#third-party">Third Party</a></li>
+        <li><a href="#third-party">Third Parties</a></li>
         <li><a href="#retention">Retention</a></li>
         <li><a href="#children">Children</a></li>
-        <li><a href="#security">Security</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+
     </nav>
   </div>
 
-  <!-- Main -->
   <main class="container">
 
-    <!-- Sidebar -->
     <aside class="sidebar">
       <h3>Contents</h3>
 
       <ul>
         <li><a href="#collection">Information Collection</a></li>
-        <li><a href="#cookies">Cookies & Tracking</a></li>
-        <li><a href="#rights">Your Rights</a></li>
+        <li><a href="#functionality">Application Functionality</a></li>
+        <li><a href="#cookies">Cookies and Tracking</a></li>
+        <li><a href="#rights">Your Privacy Rights</a></li>
         <li><a href="#ccpa">California Privacy Rights</a></li>
-        <li><a href="#third-party">Third Party Access</a></li>
+        <li><a href="#third-party">Third-Party Access</a></li>
         <li><a href="#transfers">International Transfers</a></li>
         <li><a href="#optout">Opt-Out Rights</a></li>
         <li><a href="#retention">Data Retention</a></li>
         <li><a href="#deletion">Data Deletion</a></li>
         <li><a href="#children">Children</a></li>
         <li><a href="#security">Security</a></li>
-        <li><a href="#breach">Data Breach</a></li>
-        <li><a href="#changes">Changes</a></li>
+        <li><a href="#breach">Data Breaches</a></li>
+        <li><a href="#changes">Policy Changes</a></li>
         <li><a href="#consent">Your Consent</a></li>
         <li><a href="#contact">Contact Us</a></li>
       </ul>
     </aside>
 
-    <!-- Policy Content -->
     <article class="content">
 
       <section id="collection">
-        <h2>Information Collection and Use</h2>
+        <h2>1. Information Collection and Use</h2>
 
         <p>
-          The Application collects information when you download and use it.
-          This information may include information such as:
+          Rebellion Network may collect information when you download,
+          install, or use the application. The information collected
+          depends on the features you use and the permissions you grant.
         </p>
 
+        <p>Depending on the app's implementation, information may include:</p>
+
         <ul>
-          <li>Your device's Internet Protocol address.</li>
           <li>
-            The pages of the Application that you visit, the time and date of
-            your visit, and the time spent on those pages.
+            Device information, such as device model, operating system,
+            app version, and diagnostic information.
           </li>
-          <li>The time spent on the Application.</li>
-          <li>The mobile operating system you use.</li>
+
+          <li>
+            Technical information, such as IP address, crash reports,
+            performance information, and app interaction data.
+          </li>
+
+          <li>
+            Information you voluntarily provide, such as your name,
+            email address, or account-related information, if the
+            application provides account features.
+          </li>
+
+          <li>
+            Information processed by advertising or analytics services
+            integrated into the application.
+          </li>
         </ul>
 
         <p>
-          For a better experience while using the Application, the Service
-          Provider may require you to provide certain personally identifiable
-          information, including but not limited to your name and email
-          address.
+          Information is used for purposes such as operating the
+          application, providing its features, maintaining security,
+          responding to support requests, diagnosing technical problems,
+          and improving performance.
         </p>
 
         <p>
-          The information the Service Provider requests will be retained and
-          used as described in this privacy policy.
+          The application and its integrated services may not collect
+          every category listed above. Actual collection depends on
+          the features enabled in the published version of the app.
         </p>
+
+        <div class="highlight">
+          <strong>Data minimization:</strong>
+          Information should be collected only when reasonably necessary
+          for the application's functionality, security, support,
+          analytics, advertising, or another disclosed purpose.
+        </div>
+      </section>
+
+      <section id="functionality">
+        <h2>2. Application Functionality and External Services</h2>
+
+        <p>
+          Rebellion Network is a mobile application intended to provide
+          its in-app features and user experience. The application does
+          not itself provide cryptocurrency exchange services,
+          cryptocurrency trading services, or financial account
+          management services.
+        </p>
+
+        <p>
+          Rebellion Network does not itself execute or process
+          cryptocurrency transactions. Any cryptocurrency-related
+          activities that users may undertake outside the application
+          are independent of the application and are not processed
+          by Rebellion Network.
+        </p>
+
+        <p>
+          If users independently visit external websites or platforms,
+          those services operate under their own terms, privacy
+          policies, and practices. Rebellion Network does not control
+          the data handling practices of independent external services.
+        </p>
+
+        <p>
+          Users should review the terms and privacy policies of any
+          external service they choose to use.
+        </p>
+
+        <div class="highlight">
+          <strong>Scope of this policy:</strong>
+          This Privacy Policy describes the handling of information
+          associated with Rebellion Network itself. It does not replace
+          the privacy policies of independent external services.
+        </div>
       </section>
 
       <section id="cookies">
-        <h2>Cookies and Tracking Technologies</h2>
+        <h2>3. Cookies and Tracking Technologies</h2>
 
         <p>
-          The Application or its third-party SDKs may use cookies, SDKs,
-          pixels, and similar technologies to support functionality, analytics,
-          or service delivery.
+          The mobile application may use software development kits
+          (SDKs), device identifiers, and similar technologies supplied
+          by third-party service providers.
         </p>
 
         <p>
-          Where required by applicable law, the Service Provider will obtain
-          consent before using non-essential tracking technologies.
+          If the application or a related website uses cookies or
+          similar technologies, those technologies may support
+          functionality, analytics, security, or advertising.
+        </p>
+
+        <p>
+          Where applicable law requires consent before certain
+          tracking technologies are used, the appropriate consent
+          will be obtained.
+        </p>
+
+        <p>
+          You may be able to manage advertising personalization or
+          certain tracking settings through your device settings
+          or the relevant third-party service.
         </p>
       </section>
 
       <section id="rights">
-        <h2>Your Rights</h2>
+        <h2>4. Your Privacy Rights</h2>
 
         <p>
-          You may request access to, correction of, or deletion of your
-          personal data held by the Service Provider.
+          Depending on your location and applicable law, you may have
+          rights to request access to, correction of, or deletion of
+          your personal information.
         </p>
 
         <p>
-          To exercise these rights, or to withdraw consent where processing is
-          based on consent, contact the Service Provider at
-          <a class="email" href="mailto:abnersahel@gmail.com">
-            abnersahel@gmail.com
-          </a>.
+          You may also have the right to object to certain processing,
+          restrict certain uses, withdraw consent where processing
+          relies on consent, or request a copy of information you
+          provided.
         </p>
 
         <p>
-          The Service Provider may use the information you provide to send
-          important information, required notices, and, where permitted by law,
-          marketing communications.
+          To submit a privacy request, contact the developer at:
+          <a
+            class="email"
+            href="mailto:abnersahel@gmail.com"
+          >abnersahel@gmail.com</a>.
+        </p>
+
+        <p>
+          Requests will be handled in accordance with applicable law.
+          Additional information may be requested when reasonably
+          necessary to verify your identity and protect your account
+          or personal information.
+        </p>
+
+        <p>
+          Where permitted by law, the developer may send service-related
+          messages necessary to maintain the application or communicate
+          important changes. Marketing messages, if any, will be
+          handled in accordance with applicable requirements.
         </p>
       </section>
 
       <section id="ccpa">
-        <h2>Your California Privacy Rights (CCPA/CPRA)</h2>
+        <h2>5. California Privacy Rights</h2>
 
         <p>
-          If you are a California resident, you have the right to know what
-          personal information is collected, the right to delete personal
-          information, the right to opt out of the sale or sharing of personal
-          information, and the right to non-discrimination for exercising these
-          rights.
+          If you are a California resident, applicable privacy law
+          may give you rights concerning the personal information
+          collected about you.
         </p>
 
         <p>
-          To exercise your CCPA/CPRA rights, contact the Service Provider at
-          <a class="email" href="mailto:abnersahel@gmail.com">
-            abnersahel@gmail.com
-          </a>.
+          Depending on the circumstances, these rights may include
+          requesting access to or deletion of personal information,
+          requesting correction, and opting out of certain sales
+          or sharing of personal information as those terms are
+          defined by applicable law.
+        </p>
+
+        <p>
+          To submit a request, contact:
+          <a
+            class="email"
+            href="mailto:abnersahel@gmail.com"
+          >abnersahel@gmail.com</a>.
+        </p>
+
+        <p>
+          Requests will be assessed according to the laws that apply
+          to the request and the developer's actual data practices.
         </p>
       </section>
 
       <section id="third-party">
-        <h2>Third Party Access</h2>
+        <h2>6. Third-Party Services and Information Sharing</h2>
 
         <p>
-          Only aggregated, anonymized data is periodically transmitted to
-          external services to aid the Service Provider in improving the
-          Application and their service.
+          Rebellion Network may use third-party service providers
+          to support application functionality, advertising,
+          diagnostics, analytics, hosting, or other disclosed purposes.
         </p>
 
         <p>
-          The Service Provider may share your information with third parties in
-          the ways that are described in this privacy statement.
+          These providers may process information according to their
+          own privacy policies and the services integrated into
+          the application.
         </p>
 
-        <h3>Third-Party Services</h3>
-
-        <p>
-          The Application utilizes third-party services that have their own
-          Privacy Policies about handling data.
-        </p>
+        <h3>Advertising Services</h3>
 
         <div class="highlight">
-          <strong>AdMob</strong>
+          <strong>Google AdMob</strong>
+
           <p style="margin-top: 8px; margin-bottom: 0;">
-            The Application may use AdMob as a third-party service.
-            Third-party services may collect and process information according
-            to their own privacy policies and terms.
+            If Google AdMob is enabled in the application, Google
+            and its advertising technology may process certain
+            information, such as device identifiers, advertising
+            interaction information, diagnostic data, and other
+            information described in Google's applicable disclosures.
+            The specific data processed depends on the SDK
+            configuration, consent settings, and advertising features
+            enabled in the app.
           </p>
         </div>
 
-        <h3>Disclosure of Information</h3>
+        <p>
+          For information about Google's data practices, consult
+          Google's official privacy information:
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Google Privacy Policy</a>.
+        </p>
+
+        <h3>When Information May Be Disclosed</h3>
 
         <p>
-          The Service Provider may disclose User Provided and Automatically
-          Collected Information:
+          Information may be disclosed when reasonably necessary:
         </p>
 
         <ul>
           <li>
-            As required by law, such as to comply with a subpoena or similar
-            legal process.
+            To comply with a valid legal obligation or lawful request.
           </li>
 
           <li>
-            When they believe in good faith that disclosure is necessary to
-            protect their rights, protect your safety or the safety of others,
-            investigate fraud, or respond to a government request.
+            To investigate suspected fraud, abuse, security incidents,
+            or violations of applicable terms.
           </li>
 
           <li>
-            With trusted service providers who work on their behalf, do not have
-            an independent use of the information the Service Provider discloses
-            to them, and have agreed to adhere to the rules set forth in this
-            privacy statement.
+            To protect the rights, safety, and security of users,
+            the developer, or other persons.
+          </li>
+
+          <li>
+            To service providers that process information on behalf
+            of the developer for disclosed purposes.
           </li>
         </ul>
+
+        <p>
+          Personal information will not be disclosed to unrelated
+          parties for purposes incompatible with this policy unless
+          permitted or required by applicable law.
+        </p>
       </section>
 
       <section id="transfers">
-        <h2>International Data Transfers</h2>
+        <h2>7. International Data Transfers</h2>
 
         <p>
-          The Service Provider or its third-party service providers may
-          transfer personal data to countries outside your country of
-          residence, including outside the European Economic Area (EEA).
+          Third-party service providers may process information
+          in countries other than the country in which you live.
+          Data protection laws in those countries may differ
+          from the laws in your jurisdiction.
         </p>
 
         <p>
-          Where applicable law requires safeguards for international transfers,
-          the Service Provider will use appropriate mechanisms, including:
+          Where required by applicable law, appropriate safeguards
+          will be used for international transfers of personal
+          information.
         </p>
 
-        <ul>
-          <li>
-            Standard Contractual Clauses (SCCs) approved by the European
-            Commission.
-          </li>
-
-          <li>
-            Adequacy decisions or other legally recognized transfer mechanisms.
-          </li>
-
-          <li>
-            Your consent, where required and legally permitted.
-          </li>
-        </ul>
-
         <p>
-          Data protection laws in other countries may differ from those in your
-          jurisdiction. Where required by law, the Service Provider will apply
-          appropriate safeguards and obtain any consent required for the
-          transfer.
+          These safeguards may include legally recognized transfer
+          mechanisms, appropriate contractual protections, or
+          other measures required by applicable law.
         </p>
       </section>
 
       <section id="optout">
-        <h2>Opt-Out Rights</h2>
+        <h2>8. Opt-Out Rights</h2>
 
         <p>
-          You can stop further collection of information from your mobile device
-          by uninstalling the Application.
+          You can stop using Rebellion Network at any time by
+          uninstalling the application from your device.
         </p>
 
         <p>
-          Uninstalling will stop the Application from collecting data from your
-          device, but it does not automatically delete information that has
-          already been transmitted to the Service Provider or to third parties.
+          Uninstalling the application stops your future use of
+          its installed features, but it does not automatically
+          delete information that may already have been stored
+          by the developer or third-party service providers.
         </p>
 
         <p>
-          To request deletion of your personal data, withdraw consent, or
-          exercise any of your rights, contact the Service Provider at
-          <a class="email" href="mailto:abnersahel@gmail.com">
-            abnersahel@gmail.com
-          </a>.
+          Where available, you may manage advertising preferences
+          through your device settings or the applicable advertising
+          service's controls.
+        </p>
+
+        <p>
+          To request deletion of personal information, or to exercise
+          an applicable privacy right, contact:
+          <a
+            class="email"
+            href="mailto:abnersahel@gmail.com"
+          >abnersahel@gmail.com</a>.
         </p>
       </section>
 
       <section id="retention">
-        <h2>Data Retention Policy</h2>
+        <h2>9. Data Retention Policy</h2>
 
         <p>
-          The Service Provider retains personal data based on its necessity for
-          the stated purposes:
+          Personal information is retained only for as long as
+          reasonably necessary for the purposes for which it was
+          collected, subject to applicable legal requirements.
         </p>
+
+        <p>Retention periods depend on the type of information:</p>
 
         <ul>
           <li>
-            <strong>User Provided Data:</strong>
-            Retained for the duration of your use of the Application plus
-            12 months thereafter, unless longer retention is required by law.
+            <strong>Information you provide:</strong>
+            Retained for as long as necessary to provide the relevant
+            feature, respond to your request, or maintain an associated
+            account, subject to applicable law.
           </li>
 
           <li>
-            <strong>Automatically Collected Data:</strong>
-            Retained for up to 24 months from collection, unless longer
-            retention is required for legal compliance.
+            <strong>Technical and diagnostic information:</strong>
+            Retained according to the needs of application operation,
+            security, diagnostics, and the relevant service provider's
+            retention practices.
           </li>
 
           <li>
-            <strong>Aggregated and Anonymized Data:</strong>
-            Retained indefinitely as it no longer identifies you.
+            <strong>Advertising and analytics information:</strong>
+            Retention may be determined in part by the policies and
+            settings of the relevant third-party provider.
           </li>
 
           <li>
-            <strong>Data required for legal compliance:</strong>
-            Retained as long as required by applicable law.
+            <strong>Information required for legal purposes:</strong>
+            Retained for the period required by applicable law.
           </li>
         </ul>
 
         <p>
-          You may request deletion of your personal data, subject to any legal
-          obligation to retain it.
+          When personal information is no longer necessary, reasonable
+          steps will be taken to delete it or otherwise handle it
+          in accordance with applicable law.
         </p>
 
         <p>
-          If you want the Service Provider to delete User Provided Data
-          submitted through the Application, please contact them at
-          <a class="email" href="mailto:abnersahel@gmail.com">
-            abnersahel@gmail.com
-          </a>.
-        </p>
-
-        <p>
-          Please note that some User Provided Data may be required for the
-          Application to function properly.
+          You may request deletion of your personal information
+          by contacting:
+          <a
+            class="email"
+            href="mailto:abnersahel@gmail.com"
+          >abnersahel@gmail.com</a>.
         </p>
       </section>
 
       <section id="deletion">
-        <h2>Data Deletion</h2>
+        <h2>10. Data and Account Deletion</h2>
 
         <p>
-          You can request deletion of your personal data or account by
-          contacting the Service Provider at
-          <a class="email" href="mailto:abnersahel@gmail.com">
-            abnersahel@gmail.com
-          </a>.
+          You may request deletion of personal information associated
+          with your use of Rebellion Network by contacting the developer.
         </p>
 
         <p>
-          The Service Provider will process your request within the timeframes
-          required by applicable law.
+          Send your request to:
+          <a
+            class="email"
+            href="mailto:abnersahel@gmail.com"
+          >abnersahel@gmail.com</a>.
         </p>
 
         <p>
-          Upon verification of your identity, the Service Provider will delete
-          your personal data from its systems, except where retention is
-          required for legal compliance or legitimate business purposes.
+          Please describe your request and provide only the information
+          reasonably necessary to help identify the relevant account
+          or data.
+        </p>
+
+        <p>
+          The developer will assess and process eligible requests
+          within the timeframe required by applicable law.
+        </p>
+
+        <p>
+          Some information may need to be retained where required
+          by law or where a lawful exception applies. Where applicable,
+          the user will be informed of relevant limitations.
         </p>
       </section>
 
       <section id="children">
-        <h2>Children</h2>
+        <h2>11. Children's Privacy</h2>
 
         <p>
-          The Application is not intended for children under 18 years of age,
-          or such higher age as required by applicable law.
+          Rebellion Network is not intended for children under
+          18 years of age.
         </p>
 
         <p>
-          The Service Provider does not knowingly solicit data from children or
-          market the Application to them.
+          The developer does not knowingly seek to collect personal
+          information from children under 18 in violation of
+          applicable law.
         </p>
 
         <p>
-          Where parental or guardian consent is required under applicable law,
-          the Application is not intended for use without that consent.
+          If the developer becomes aware that personal information
+          has been collected from a child in circumstances where
+          collection is not permitted, reasonable steps will be
+          taken to address the situation, including deletion
+          where appropriate.
         </p>
 
         <p>
-          The Service Provider does not knowingly collect personally
-          identifiable information from children under 18 years of age in
-          violation of applicable law.
-        </p>
-
-        <p>
-          In the event the Service Provider discovers that a child has provided
-          personal information, the Service Provider will immediately delete
-          this from their servers.
-        </p>
-
-        <p>
-          If you are a parent or guardian and you are aware that your child has
-          provided the Service Provider with personal information, please
-          contact the Service Provider at
-          <a class="email" href="mailto:abnersahel@gmail.com">
-            abnersahel@gmail.com
-          </a>
-          so that they will be able to take the necessary actions.
+          A parent or guardian who believes that a child has
+          provided personal information may contact:
+          <a
+            class="email"
+            href="mailto:abnersahel@gmail.com"
+          >abnersahel@gmail.com</a>.
         </p>
       </section>
 
       <section id="security">
-        <h2>Security</h2>
+        <h2>12. Security</h2>
 
         <p>
-          The Service Provider is concerned about safeguarding the
-          confidentiality of your information.
+          The developer takes reasonable measures to protect
+          information handled in connection with Rebellion Network.
         </p>
 
         <p>
-          The Service Provider provides physical, electronic, and procedural
-          safeguards to protect information the Service Provider processes and
-          maintains.
+          Depending on the systems used, these measures may include
+          access controls, secure communications, appropriate
+          configuration, and measures designed to reduce the risk
+          of unauthorized access, alteration, disclosure, or loss.
+        </p>
+
+        <p>
+          No electronic storage system or method of transmission
+          can be guaranteed to be completely secure. Users should
+          take reasonable precautions to protect their devices
+          and account credentials.
         </p>
       </section>
 
       <section id="breach">
-        <h2>Data Breach Notification</h2>
+        <h2>13. Data Breach Notification</h2>
 
         <p>
-          If a data breach occurs that affects your personal data, the Service
-          Provider will notify you in accordance with applicable legal
-          requirements, including, where required, providing information about
-          the nature of the breach and the steps being taken to address it.
+          If a security incident affects personal information,
+          reasonable steps will be taken to investigate the incident,
+          mitigate its effects, and protect affected information.
+        </p>
+
+        <p>
+          Where notification is required by applicable law,
+          affected users and relevant authorities will be notified
+          in accordance with the applicable requirements.
         </p>
       </section>
 
       <section id="changes">
-        <h2>Changes</h2>
+        <h2>14. Changes to This Privacy Policy</h2>
 
         <p>
-          The Service Provider may update this Privacy Policy from time to time.
-          The Service Provider will notify you of material changes by posting
-          the updated Privacy Policy with an effective date.
+          This Privacy Policy may be updated from time to time
+          to reflect changes in the application, its services,
+          applicable law, or data handling practices.
         </p>
 
         <p>
-          Where required by law, the Service Provider will seek your consent to
-          material changes before they take effect.
+          The updated policy will be published with a revised
+          effective date.
         </p>
 
         <p>
-          Previous versions of this Privacy Policy will be maintained and made
-          available upon request by contacting the Service Provider at
-          <a class="email" href="mailto:abnersahel@gmail.com">
-            abnersahel@gmail.com
-          </a>.
+          Where required by law, additional notice or consent
+          will be provided before relevant changes take effect.
         </p>
 
         <div class="highlight">
-          <strong>Effective Date:</strong> October 3, 2026
+          <strong>Effective Date:</strong> October 28, 2026
         </div>
       </section>
 
       <section id="consent">
-        <h2>Your Consent</h2>
+        <h2>15. Your Consent</h2>
 
         <p>
-          Where processing is based on consent, you provide that consent by
-          affirmatively opting in to the relevant feature or action.
+          By using Rebellion Network, you acknowledge that you
+          have had the opportunity to review this Privacy Policy.
         </p>
 
         <p>
-          You may withdraw consent at any time without affecting processing
-          carried out before withdrawal.
+          Where processing requires consent, consent will be
+          requested in the manner required by applicable law.
         </p>
 
         <p>
-          Processing based on other lawful bases is carried out as described
-          above.
+          You may withdraw consent where processing is based
+          on consent, subject to applicable legal requirements.
+          Withdrawal does not affect the lawfulness of processing
+          carried out before consent was withdrawn.
         </p>
       </section>
 
       <section id="contact">
-        <h2>Contact Us</h2>
+        <h2>16. Contact the Developer</h2>
 
         <p>
-          If you have any questions regarding privacy while using the
-          Application, or have questions about the practices, please contact
-          the Service Provider via email.
+          If you have questions about this Privacy Policy,
+          the information associated with your use of Rebellion
+          Network, or a privacy request, please contact the
+          individual developer using the details below.
         </p>
 
         <div class="contact-box">
-          <strong>Blockchain Sage</strong>
-          <br>
+          <strong>Developer:</strong> Blockchain Sage
+          <br><br>
 
+          <strong>Email:</strong>
           <a
             class="email"
             href="mailto:abnersahel@gmail.com"
-          >
-            abnersahel@gmail.com
-          </a>
+          >abnersahel@gmail.com</a>
         </div>
       </section>
 
     </article>
   </main>
 
-  <!-- Footer -->
   <footer>
     <p>
-      © <span id="year"></span>
+      &copy; <span id="year"></span>
       <strong>Blockchain Sage</strong>.
       All rights reserved.
     </p>
 
-    <p>
-      Rebellion Network Privacy Policy
-    </p>
+    <p>Rebellion Network Privacy Policy</p>
   </footer>
 
   <script>
-    // Current year in footer
+    // Display the current year in the footer.
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
-    // Mobile navigation
+    // Mobile navigation.
     const menuButton = document.getElementById("menuButton");
     const navLinks = document.getElementById("navLinks");
 
     menuButton.addEventListener("click", function () {
-      navLinks.classList.toggle("active");
-
-      const expanded =
+      const isExpanded =
         menuButton.getAttribute("aria-expanded") === "true";
+
+      navLinks.classList.toggle("active");
 
       menuButton.setAttribute(
         "aria-expanded",
-        String(!expanded)
+        String(!isExpanded)
       );
     });
 
-    // Close mobile menu after clicking a link
+    // Close the mobile menu after selecting a link.
     document.querySelectorAll(".nav-links a").forEach(function (link) {
       link.addEventListener("click", function () {
         navLinks.classList.remove("active");
@@ -949,7 +1086,7 @@
       });
     });
 
-    // Back to top
+    // Smoothly return to the top of the page.
     function scrollToTop() {
       window.scrollTo({
         top: 0,
@@ -960,3 +1097,4 @@
 
 </body>
 </html>
+```
